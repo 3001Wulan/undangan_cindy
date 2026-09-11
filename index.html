@@ -1,2044 +1,1339 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
-    <title>Undangan Wisuda Cindy Arwinda Putri, S.Kom</title>
-
-    <meta
-        name="description"
-        content="Undangan Wisuda Cindy Arwinda Putri, S.Kom"
-    >
-
-    <meta property="og:title" content="Undangan Wisuda Cindy Arwinda Putri, S.Kom">
-    <meta
-        property="og:description"
-        content="Sebuah hari istimewa untuk merayakan perjalanan dan pencapaian."
-    >
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
-
-    <style>
-
-        /* =========================================================
-           RESET
-        ========================================================= */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: "DM Sans", sans-serif;
-            background: #10091d;
-            color: #24172f;
-            overflow-x: hidden;
-        }
-
-        body.locked {
-            overflow: hidden;
-        }
-
-        button,
-        input,
-        textarea {
-            font-family: inherit;
-        }
-
-        button {
-            cursor: pointer;
-        }
-
-        img {
-            display: block;
-            width: 100%;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        ::selection {
-            background: #8b5cf6;
-            color: #fff;
-        }
-
-
-        /* =========================================================
-           VARIABLES
-        ========================================================= */
-
-        :root {
-            --dark: #10091d;
-            --dark-2: #170d2b;
-            --dark-3: #24123e;
-
-            --purple: #7c4dff;
-            --purple-2: #9b78ff;
-            --purple-soft: #cfc1ff;
-
-            --lavender: #eee9ff;
-            --cream: #fbf9ff;
-
-            --white: #ffffff;
-            --black: #16101e;
-
-            --text: #291d36;
-            --muted: #756b82;
-
-            --border: rgba(124, 77, 255, 0.16);
-
-            --shadow:
-                0 25px 70px rgba(36, 15, 70, 0.15);
-        }
-
-
-        /* =========================================================
-           LOADER
-        ========================================================= */
-
-        #loader {
-            position: fixed;
-            inset: 0;
-            z-index: 99999;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            background:
-                radial-gradient(
-                    circle at 50% 40%,
-                    rgba(124, 77, 255, 0.2),
-                    transparent 35%
-                ),
-                var(--dark);
-
-            transition:
-                opacity 0.8s ease,
-                visibility 0.8s ease;
-        }
-
-        #loader.hide {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .loader-content {
-            text-align: center;
-            color: #fff;
-        }
-
-        .loader-small {
-            font-size: 10px;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            opacity: 0.6;
-            margin-bottom: 18px;
-        }
-
-        .loader-name {
-            font-family: "Cormorant Garamond", serif;
-            font-size: clamp(42px, 10vw, 78px);
-            line-height: 0.9;
-            font-weight: 500;
-        }
-
-        .loader-line {
-            width: 70px;
-            height: 1px;
-            background: rgba(255,255,255,0.4);
-            margin: 25px auto;
-        }
-
-        .loader-text {
-            font-size: 11px;
-            letter-spacing: 2px;
-            opacity: 0.5;
-        }
-
-
-        /* =========================================================
-           COVER / HALAMAN DEPAN
-        ========================================================= */
-
-        #cover {
-            position: fixed;
-            inset: 0;
-            z-index: 9000;
-
-            min-height: 100svh;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            padding: 30px 20px;
-
-            overflow: hidden;
-
-            background:
-                radial-gradient(
-                    circle at 15% 20%,
-                    rgba(155, 120, 255, 0.28),
-                    transparent 27%
-                ),
-                radial-gradient(
-                    circle at 85% 80%,
-                    rgba(124, 77, 255, 0.22),
-                    transparent 30%
-                ),
-                linear-gradient(
-                    145deg,
-                    #0c0715 0%,
-                    #160b27 48%,
-                    #261044 100%
-                );
-
-            transition:
-                opacity 1s ease,
-                visibility 1s ease,
-                transform 1s ease;
-        }
-
-        #cover.opened {
-            opacity: 0;
-            visibility: hidden;
-            transform: scale(1.04);
-            pointer-events: none;
-        }
-
-        /* decorative circles */
-
-        .cover-circle {
-            position: absolute;
-            border-radius: 50%;
-            border: 1px solid rgba(255,255,255,0.09);
-            pointer-events: none;
-        }
-
-        .circle-1 {
-            width: 360px;
-            height: 360px;
-            top: -170px;
-            right: -140px;
-        }
-
-        .circle-2 {
-            width: 500px;
-            height: 500px;
-            bottom: -300px;
-            left: -230px;
-        }
-
-        .circle-3 {
-            width: 170px;
-            height: 170px;
-            top: 20%;
-            left: -100px;
-            border-color: rgba(155,120,255,0.16);
-        }
-
-        /* cover grid */
-
-        .cover-grid {
-            position: absolute;
-            inset: 0;
-
-            background-image:
-                linear-gradient(
-                    rgba(255,255,255,0.025) 1px,
-                    transparent 1px
-                ),
-                linear-gradient(
-                    90deg,
-                    rgba(255,255,255,0.025) 1px,
-                    transparent 1px
-                );
-
-            background-size: 45px 45px;
-
-            mask-image: linear-gradient(
-                to bottom,
-                black,
-                transparent 90%
-            );
-
-            pointer-events: none;
-        }
-
-        /* sparkles */
-
-        .sparkle {
-            position: absolute;
-
-            width: 4px;
-            height: 4px;
-
-            border-radius: 50%;
-
-            background: #fff;
-
-            opacity: 0.5;
-
-            animation:
-                twinkle 3s ease-in-out infinite;
-        }
-
-        @keyframes twinkle {
-
-            0%,
-            100% {
-                opacity: 0.15;
-                transform: scale(0.7);
-            }
-
-            50% {
-                opacity: 1;
-                transform: scale(1.4);
-            }
-        }
-
-        /* cover content */
-
-        .cover-inner {
-            position: relative;
-            z-index: 2;
-
-            width: min(100%, 520px);
-
-            text-align: center;
-
-            color: #fff;
-        }
-
-        .cover-top {
-            font-size: 10px;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-
-            color: rgba(255,255,255,0.58);
-
-            margin-bottom: 25px;
-        }
-
-        .cover-line {
-            width: 1px;
-            height: 55px;
-
-            background:
-                linear-gradient(
-                    to bottom,
-                    transparent,
-                    rgba(255,255,255,0.7),
-                    transparent
-                );
-
-            margin: 0 auto 28px;
-        }
-
-        .cover-to {
-            font-size: 13px;
-            letter-spacing: 1px;
-            color: rgba(255,255,255,0.7);
-
-            margin-bottom: 8px;
-        }
-
-        .guest-name {
-            font-family: "Cormorant Garamond", serif;
-
-            font-size: clamp(38px, 10vw, 62px);
-
-            line-height: 0.95;
-            font-weight: 500;
-
-            margin-bottom: 35px;
-
-            word-break: break-word;
-        }
-
-        .cover-divider {
-            width: 70px;
-            height: 1px;
-
-            background: rgba(255,255,255,0.35);
-
-            margin: 0 auto 32px;
-        }
-
-        .cover-invitation {
-            font-size: 11px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-
-            color: rgba(255,255,255,0.55);
-
-            margin-bottom: 14px;
-        }
-
-        .cover-name {
-            font-family: "Cormorant Garamond", serif;
-
-            font-size: clamp(34px, 9vw, 52px);
-
-            line-height: 0.9;
-            font-weight: 600;
-
-            margin-bottom: 8px;
-        }
-
-        .cover-degree {
-            font-size: 11px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-
-            color: var(--purple-soft);
-
-            margin-bottom: 30px;
-        }
-
-        .cover-event {
-            font-size: 11px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-
-            color: rgba(255,255,255,0.48);
-
-            margin-bottom: 28px;
-        }
-
-        .open-button {
-            position: relative;
-
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-
-            min-width: 210px;
-
-            padding: 15px 25px;
-
-            border: 1px solid rgba(255,255,255,0.25);
-            border-radius: 999px;
-
-            background: rgba(255,255,255,0.08);
-
-            color: #fff;
-
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-
-            backdrop-filter: blur(12px);
-
-            transition:
-                background 0.3s ease,
-                transform 0.3s ease,
-                border-color 0.3s ease;
-        }
-
-        .open-button:hover {
-            background: rgba(124,77,255,0.35);
-            border-color: rgba(255,255,255,0.45);
-            transform: translateY(-3px);
-        }
-
-        .open-arrow {
-            font-size: 18px;
-            line-height: 0;
-        }
-
-        .cover-bottom {
-            position: absolute;
-            bottom: 25px;
-            left: 0;
-            right: 0;
-
-            text-align: center;
-
-            font-size: 9px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-
-            color: rgba(255,255,255,0.3);
-        }
-
-
-        /* =========================================================
-           MAIN CONTENT
-        ========================================================= */
-
-        #main-content {
-            position: relative;
-
-            background: var(--cream);
-
-            opacity: 0;
-            visibility: hidden;
-
-            transition:
-                opacity 0.8s ease;
-        }
-
-        #main-content.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-
-        /* =========================================================
-           HERO
-        ========================================================= */
-
-        .hero {
-            position: relative;
-
-            min-height: 100svh;
-
-            display: flex;
-            align-items: center;
-
-            overflow: hidden;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #10091d,
-                    #211035 60%,
-                    #3b1b63
-                );
-
-            color: #fff;
-        }
-
-        .hero::after {
-            content: "";
-
-            position: absolute;
-            inset: 0;
-
-            background:
-                radial-gradient(
-                    circle at 80% 25%,
-                    rgba(155,120,255,0.2),
-                    transparent 25%
-                );
-
-            pointer-events: none;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-
-            width: min(1120px, 100%);
-
-            margin: auto;
-
-            padding:
-                80px 24px
-                60px;
-        }
-
-        .hero-kicker {
-            font-size: 10px;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-
-            color: rgba(255,255,255,0.55);
-
-            margin-bottom: 25px;
-        }
-
-        .hero-title {
-            font-family: "Cormorant Garamond", serif;
-
-            font-size: clamp(70px, 18vw, 190px);
-
-            line-height: 0.7;
-
-            font-weight: 500;
-
-            letter-spacing: -5px;
-
-            margin-left: -5px;
-        }
-
-        .hero-title span {
-            display: block;
-        }
-
-        .hero-title .second {
-            margin-left: 12%;
-            color: var(--purple-soft);
-        }
-
-        .hero-info {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-
-            gap: 30px;
-
-            margin-top: 70px;
-        }
-
-        .hero-description {
-            max-width: 390px;
-
-            font-size: 14px;
-            line-height: 1.8;
-
-            color: rgba(255,255,255,0.62);
-        }
-
-        .hero-date {
-            text-align: right;
-
-            font-family: "Cormorant Garamond", serif;
-
-            font-size: 26px;
-        }
-
-        .hero-date small {
-            display: block;
-
-            font-family: "DM Sans", sans-serif;
-
-            font-size: 9px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-
-            color: rgba(255,255,255,0.45);
-
-            margin-bottom: 5px;
-        }
-
-        .hero-photo {
-            position: absolute;
-
-            z-index: 1;
-
-            width: min(38vw, 440px);
-            height: min(55vw, 600px);
-
-            right: 7%;
-            top: 50%;
-
-            transform:
-                translateY(-50%)
-                rotate(4deg);
-
-            overflow: hidden;
-
-            border: 1px solid rgba(255,255,255,0.2);
-
-            box-shadow:
-                0 40px 100px rgba(0,0,0,0.35);
-        }
-
-        .hero-photo img {
-            width: 100%;
-            height: 100%;
-
-            object-fit: cover;
-        }
-
-        .hero-photo::after {
-            content: "";
-
-            position: absolute;
-            inset: 0;
-
-            background:
-                linear-gradient(
-                    to top,
-                    rgba(16,9,29,0.35),
-                    transparent 40%
-                );
-        }
-
-        .hero-stamp {
-            position: absolute;
-
-            z-index: 4;
-
-            right: 37%;
-            bottom: 12%;
-
-            width: 92px;
-            height: 92px;
-
-            border: 1px solid rgba(255,255,255,0.45);
-            border-radius: 50%;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            text-align: center;
-
-            font-size: 8px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-
-            background: rgba(16,9,29,0.55);
-
-            backdrop-filter: blur(8px);
-        }
-
-
-        /* =========================================================
-           SECTION GENERAL
-        ========================================================= */
-
-        .section {
-            padding: 100px 20px;
-        }
-
-        .container {
-            width: min(1080px, 100%);
-            margin: auto;
-        }
-
-        .section-label {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-
-            font-size: 9px;
-            font-weight: 600;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-
-            color: var(--purple);
-
-            margin-bottom: 18px;
-        }
-
-        .section-label::before {
-            content: "";
-
-            width: 32px;
-            height: 1px;
-
-            background: var(--purple);
-        }
-
-        .section-title {
-            font-family: "Cormorant Garamond", serif;
-
-            font-size: clamp(42px, 8vw, 72px);
-
-            line-height: 0.95;
-
-            font-weight: 500;
-
-            color: var(--text);
-        }
-
-        .section-subtitle {
-            max-width: 560px;
-
-            margin-top: 18px;
-
-            font-size: 14px;
-            line-height: 1.8;
-
-            color: var(--muted);
-        }
-
-
-        /* =========================================================
-           QUOTE
-        ========================================================= */
-
-        .quote-section {
-            background: #fff;
-        }
-
-        .quote-wrapper {
-            width: min(850px, 100%);
-            margin: auto;
-
-            text-align: center;
-        }
-
-        .quote-mark {
-            font-family: "Cormorant Garamond", serif;
-
-            font-size: 90px;
-            line-height: 0.5;
-
-            color: var(--purple-soft);
-
-            margin-bottom: 25px;
-        }
-
-        .quote-text {
-            font-family: "Cormorant Garamond", serif;
-
-            font-size: clamp(30px, 6vw, 55px);
-
-            line-height: 1.1;
-
-            color: var(--text);
-        }
-
-        .quote-author {
-            margin-top: 25px;
-
-            font-size: 9px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-
-            color: var(--muted);
-        }
-
-
-        /* =========================================================
-           EVENT TICKET
-        ========================================================= */
-
-        .event-section {
-            background: var(--lavender);
-        }
-
-        .event-layout {
-            display: grid;
-            grid-template-columns: 0.8fr 1.2fr;
-
-            gap: 50px;
-
-            align-items: end;
-        }
-
-        .event-intro {
-            padding-bottom: 20px;
-        }
-
-        .ticket {
-            position: relative;
-
-            background: #fff;
-
-            box-shadow: var(--shadow);
-
-            overflow: hidden;
-        }
-
-        .ticket-top {
-            padding: 32px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #1b0c30,
-                    #41206b
-                );
-
-            color: #fff;
-        }
-
-        .ticket-brand {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            margin-bottom: 40px;
-        }
-
-        .ticket-brand span {
-            font-size: 9px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-
-            opacity: 0.6;
-        }
-
-        .ticket-title {
-            font-family: "Cormorant Garamond", serif;
-
-            font-size: 42px;
-
-            line-height: 0.9;
-        }
-
-        .ticket-body {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .ticket-item {
-            padding: 25px 28px;
-
-            border-bottom: 1px dashed var(--border);
-        }
-
-        .ticket-item:nth-child(odd) {
-            border-right: 1px dashed var(--border);
-        }
-
-        .ticket-item:last-child {
-            grid-column: 1 / -1;
-            border-bottom: 0;
-        }
-
-        .ticket-label {
-            font-size: 8px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-
-            color: var(--muted);
-
-            margin-bottom: 8px;
-        }
-
-        .ticket-value {
-            font-family: "Cormorant Garamond", serif;
-
-            font-size: 25px;
-
-            color: var(--text);
-        }
-
-        .ticket-address {
-            font-family: "DM Sans", sans-serif;
-
-            font-size: 13px;
-            line-height: 1.6;
-
-            color: var(--text);
-        }
-
-        .ticket-bottom {
-            padding: 20px 28px;
-
-            border-top: 1px dashed var(--border);
-
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            gap: 15px;
-        }
-
-        .ticket-code {
-            font-size: 9px;
-            letter-spacing: 3px;
-
-            color: var(--muted);
-        }
-
-        .map-button {
-            border: 0;
-
-            background: var(--dark);
-            color: #fff;
-
-            padding: 11px 17px;
-
-            font-size: 9px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-
-            transition: 0.3s;
-        }
-
-        .map-button:hover {
-            background: var(--purple);
-        }
-
-
-        /* =========================================================
-           COUNTDOWN
-        ========================================================= */
-
-        .countdown-section {
-            background: var(--dark);
-            color: #fff;
-        }
-
-        .countdown-section .section-label {
-            color: var(--purple-soft);
-        }
-
-        .countdown-section .section-label::before {
-            background: var(--purple-soft);
-        }
-
-        .countdown-section .section-title {
-            color: #fff;
-        }
-
-        .countdown-section .section-subtitle {
-            color: rgba(255,255,255,0.5);
-        }
-
-        .countdown {
-            display: grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
-            margin-top: 55px;
-
-            border-top:
-                1px solid rgba(255,255,255,0.12);
-
-            border-bottom:
-                1px solid rgba(255,255,255,0.12);
-        }
-
-        .count-item {
-            padding: 35px 15px;
-
-            text-align: center;
-
-            border-right:
-                1px solid rgba(255,255,255,0.12);
-        }
-
-        .count-item:last-child {
-            border-right: 0;
-        }
-
-        .count-number {
-            font-family: "Cormorant Garamond", serif;
-
-            font-size: clamp(44px, 8vw, 76px);
-
-            line-height: 0.9;
-        }
-
-        .count-label {
-            margin-top: 10px;
-
-            font-size: 8px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-
-            color: rgba(255,255,255,0.4);
-        }
-
-        #countdown-message {
-            text-align: center;
-
-            margin-top: 22px;
-
-            font-size: 11px;
-
-            color: rgba(255,255,255,0.4);
-        }
-
-
-        /* =========================================================
-           JOURNEY / TIMELINE
-        ========================================================= */
-
-        .journey-section {
-            background: #fff;
-        }
-
-        .journey-head {
-            display: flex;
-
-            justify-content: space-between;
-            align-items: flex-end;
-
-            gap: 30px;
-
-            margin-bottom: 65px;
-        }
-
-        .journey-number {
-            font-family: "Cormorant Garamond", serif;
-
-            font-size: 120px;
-            line-height: 0.6;
-
-            color: var(--lavender);
-
-            user-select: none;
-        }
-
-        .timeline {
-            position: relative;
-
-            border-top:
-                1px solid var(--border);
-        }
-
-        .timeline-item {
-            display: grid;
-
-            grid-template-columns: 110px 1fr;
-
-            gap: 35px;
-
-            padding: 38px 0;
-
-            border-bottom:
-                1px solid var(--border);
-        }
-
-        .timeline-year {
-            font-size: 10px;
-            letter-spacing: 2px;
-
-            color: var(--purple);
-
-            padding-top: 7px;
-        }
-
-        .timeline-title {
-            font-family: "Cormorant Garamond", serif;
-
-            font-size: 34px;
-
-            margin-bottom: 8px;
-        }
-
-        .timeline-text {
-            max-width: 650px;
-
-            font-size: 13px;
-            line-height: 1.8;
-
-            color: var(--muted);
-        }
-
-
-        /* =========================================================
-           GALLERY
-        ========================================================= */
-
-        .gallery-section {
-            background: #f5f1fc;
-        }
-
-        .gallery-head {
-            display: flex;
-
-            justify-content: space-between;
-            align-items: flex-end;
-
-            gap: 30px;
-
-            margin-bottom: 45px;
-        }
-
-        .gallery-note {
-            max-width: 260px;
-
-            font-size: 11px;
-            line-height: 1.7;
-
-            color: var(--muted);
-        }
-
-        .gallery {
-            display: grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
-            grid-auto-rows: 220px;
-
-            gap: 12px;
-        }
-
-        .gallery-item {
-            position: relative;
-
-            overflow: hidden;
-
-            background: #ded6ed;
-
-            cursor: pointer;
-        }
-
-        .gallery-item:nth-child(1) {
-            grid-column: span 2;
-            grid-row: span 2;
-        }
-
-        .gallery-item:nth-child(4) {
-            grid-column: span 2;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-
-            object-fit: cover;
-
-            transition:
-                transform 0.7s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.06);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            inset: 0;
-
-            display: flex;
-            align-items: flex-end;
-
-            padding: 20px;
-
-            background:
-                linear-gradient(
-                    to top,
-                    rgba(16,9,29,0.6),
-                    transparent 45%
-                );
-
-            opacity: 0;
-
-            transition: opacity 0.3s;
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-
-        .gallery-overlay span {
-            color: #fff;
-
-            font-size: 9px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-
-        /* =========================================================
-           LIGHTBOX
-        ========================================================= */
-
-        #lightbox {
-            position: fixed;
-            inset: 0;
-
-            z-index: 99998;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            padding: 25px;
-
-            background: rgba(9,5,15,0.94);
-
-            opacity: 0;
-            visibility: hidden;
-
-            transition: 0.35s;
-        }
-
-        #lightbox.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        #lightbox img {
-            max-width: 100%;
-            max-height: 85vh;
-
-            width: auto;
-            height: auto;
-
-            object-fit: contain;
-        }
-
-        .lightbox-close {
-            position: absolute;
-
-            top: 20px;
-            right: 20px;
-
-            width: 42px;
-            height: 42px;
-
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 50%;
-
-            background: rgba(255,255,255,0.08);
-
-            color: #fff;
-
-            font-size: 22px;
-        }
-
-
-        /* =========================================================
-           WISHES
-        ========================================================= */
-
-        .wishes-section {
-            background: #fff;
-        }
-
-        .wishes-layout {
-            display: grid;
-
-            grid-template-columns:
-                0.8fr 1.2fr;
-
-            gap: 70px;
-        }
-
-        .wishes-form {
-            margin-top: 35px;
-        }
-
-        .field {
-            margin-bottom: 18px;
-        }
-
-        .field label {
-            display: block;
-
-            font-size: 9px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-
-            color: var(--muted);
-
-            margin-bottom: 8px;
-        }
-
-        .field input,
-        .field textarea {
-            width: 100%;
-
-            border: 1px solid var(--border);
-
-            background: #faf8fd;
-
-            padding: 14px 15px;
-
-            outline: none;
-
-            color: var(--text);
-
-            font-size: 13px;
-
-            transition: border 0.3s;
-        }
-
-        .field textarea {
-            min-height: 125px;
-
-            resize: vertical;
-        }
-
-        .field input:focus,
-        .field textarea:focus {
-            border-color: var(--purple);
-        }
-
-        .submit-button {
-            width: 100%;
-
-            border: 0;
-
-            background: var(--dark);
-            color: #fff;
-
-            padding: 15px;
-
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-
-            transition: 0.3s;
-        }
-
-        .submit-button:hover {
-            background: var(--purple);
-        }
-
-        .wishes-list {
-            max-height: 500px;
-
-            overflow-y: auto;
-
-            padding-right: 8px;
-        }
-
-        .wish-empty {
-            padding: 50px 20px;
-
-            border:
-                1px dashed var(--border);
-
-            text-align: center;
-
-            font-size: 12px;
-
-            color: var(--muted);
-        }
-
-        .wish {
-            padding: 25px 0;
-
-            border-bottom:
-                1px solid var(--border);
-        }
-
-        .wish:first-child {
-            padding-top: 0;
-        }
-
-        .wish-name {
-            font-weight: 600;
-
-            font-size: 13px;
-
-            margin-bottom: 6px;
-        }
-
-        .wish-message {
-            font-size: 13px;
-
-            line-height: 1.7;
-
-            color: var(--muted);
-        }
-
-        .wish-time {
-            margin-top: 8px;
-
-            font-size: 8px;
-            letter-spacing: 1px;
-
-            color: #aaa;
-        }
-
-
-        /* =========================================================
-           LOCATION
-        ========================================================= */
-
-        .location-section {
-            background:
-                linear-gradient(
-                    135deg,
-                    #180c29,
-                    #2b1450
-                );
-
-            color: #fff;
-        }
-
-        .location-grid {
-            display: grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            gap: 60px;
-
-            align-items: center;
-        }
-
-        .location-section .section-label {
-            color: var(--purple-soft);
-        }
-
-        .location-section .section-label::before {
-            background: var(--purple-soft);
-        }
-
-        .location-section .section-title {
-            color: #fff;
-        }
-
-        .location-text {
-            margin-top: 25px;
-
-            font-size: 14px;
-            line-height: 1.8;
-
-            color: rgba(255,255,255,0.55);
-        }
-
-        .location-box {
-            border:
-                1px solid rgba(255,255,255,0.13);
-
-            padding: 40px;
-
-            background:
-                rgba(255,255,255,0.04);
-        }
-
-        .location-icon {
-            width: 45px;
-            height: 45px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border:
-                1px solid rgba(255,255,255,0.2);
-
-            border-radius: 50%;
-
-            margin-bottom: 25px;
-
-            font-size: 18px;
-        }
-
-        .location-name {
-            font-family: "Cormorant Garamond", serif;
-
-            font-size: 34px;
-
-            margin-bottom: 10px;
-        }
-
-        .location-address {
-            font-size: 12px;
-            line-height: 1.7;
-
-            color: rgba(255,255,255,0.5);
-        }
-
-        .location-button {
-            display: inline-block;
-
-            margin-top: 25px;
-
-            padding: 13px 20px;
-
-            border:
-                1px solid rgba(255,255,255,0.25);
-
-            color: #fff;
-
-            font-size: 9px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-
-            transition: 0.3s;
-        }
-
-        .location-button:hover {
-            background: rgba(255,255,255,0.1);
-        }
-
-
-        /* =========================================================
-           FINAL
-        ========================================================= */
-
-        .final-section {
-            position: relative;
-
-            min-height: 75vh;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            text-align: center;
-
-            background: var(--cream);
-
-            overflow: hidden;
-        }
-
-        .final-circle {
-            position: absolute;
-
-            width: 500px;
-            height: 500px;
-
-            border-radius: 50%;
-
-            border:
-                1px solid rgba(124,77,255,0.1);
-
-            top: 50%;
-            left: 50%;
-
-            transform:
-                translate(-50%, -50%);
-        }
-
-        .final-circle::after {
-            content: "";
-
-            position: absolute;
-
-            inset: 45px;
-
-            border-radius: 50%;
-
-            border:
-                1px solid rgba(124,77,255,0.08);
-        }
-
-        .final-content {
-            position: relative;
-            z-index: 2;
-
-            max-width: 700px;
-            padding: 20px;
-        }
-
-        .final-small {
-            font-size: 9px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-
-            color: var(--purple);
-
-            margin-bottom: 25px;
-        }
-
-        .final-title {
-            font-family: "Cormorant Garamond", serif;
-
-            font-size: clamp(50px, 10vw, 100px);
-
-            line-height: 0.85;
-
-            font-weight: 500;
-        }
-
-        .final-name {
-            margin-top: 28px;
-
-            font-family: "Cormorant Garamond", serif;
-
-            font-size: 30px;
-
-            color: var(--purple);
-        }
-
-        .final-text {
-            max-width: 500px;
-
-            margin: 20px auto 0;
-
-            font-size: 13px;
-            line-height: 1.8;
-
-            color: var(--muted);
-        }
-
-
-        /* =========================================================
-           FOOTER
-        ========================================================= */
-
-        footer {
-            padding: 25px 20px;
-
-            text-align: center;
-
-            background: var(--dark);
-
-            color: rgba(255,255,255,0.4);
-
-            font-size: 9px;
-            letter-spacing: 1px;
-        }
-
-
-        /* =========================================================
-           MUSIC BUTTON
-        ========================================================= */
-
-        #music-button {
-            position: fixed;
-
-            z-index: 8000;
-
-            right: 18px;
-            bottom: 18px;
-
-            width: 48px;
-            height: 48px;
-
-            border:
-                1px solid rgba(255,255,255,0.18);
-
-            border-radius: 50%;
-
-            background: rgba(16,9,29,0.85);
-
-            color: #fff;
-
-            display: none;
-            align-items: center;
-            justify-content: center;
-
-            font-size: 17px;
-
-            backdrop-filter: blur(10px);
-
-            box-shadow:
-                0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        #music-button.active {
-            display: flex;
-        }
-
-        #music-button.playing {
-            animation:
-                musicPulse 1.5s ease-in-out infinite;
-        }
-
-        @keyframes musicPulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.08);
-            }
-        }
-
-
-        /* =========================================================
-           RESPONSIVE TABLET
-        ========================================================= */
-
-        @media (max-width: 900px) {
-
-            .hero-photo {
-                width: 310px;
-                height: 430px;
-
-                right: -50px;
-
-                opacity: 0.5;
-            }
-
-            .hero-content {
-                padding-right: 35%;
-            }
-
-            .hero-stamp {
-                right: 25%;
-            }
-
-            .event-layout,
-            .wishes-layout,
-            .location-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .gallery {
-                grid-template-columns:
-                    repeat(2, 1fr);
-
-                grid-auto-rows: 230px;
-            }
-
-            .gallery-item:nth-child(1) {
-                grid-column: span 2;
-            }
-
-            .gallery-item:nth-child(4) {
-                grid-column: span 1;
-            }
-        }
-
-
-        /* =========================================================
-           RESPONSIVE MOBILE
-        ========================================================= */
-
-        @media (max-width: 600px) {
-
-            .section {
-                padding: 75px 18px;
-            }
-
-            /* COVER */
-
-            .cover-top {
-                font-size: 8px;
-                letter-spacing: 4px;
-            }
-
-            .guest-name {
-                font-size: 43px;
-            }
-
-            .cover-name {
-                font-size: 38px;
-            }
-
-            .cover-line {
-                height: 40px;
-            }
-
-            /* HERO */
-
-            .hero {
-                min-height: 100svh;
-            }
-
-            .hero-content {
-                padding:
-                    80px 20px
-                    50px;
-            }
-
-            .hero-photo {
-                width: 215px;
-                height: 315px;
-
-                right: -50px;
-                top: 42%;
-
-                opacity: 0.48;
-            }
-
-            .hero-title {
-                font-size: 92px;
-
-                letter-spacing: -3px;
-            }
-
-            .hero-title .second {
-                margin-left: 3%;
-            }
-
-            .hero-info {
-                display: block;
-
-                margin-top: 50px;
-            }
-
-            .hero-description {
-                max-width: 270px;
-
-                font-size: 12px;
-            }
-
-            .hero-date {
-                margin-top: 25px;
-
-                text-align: left;
-
-                font-size: 22px;
-            }
-
-            .hero-stamp {
-                width: 70px;
-                height: 70px;
-
-                right: 25px;
-                bottom: 17%;
-
-                font-size: 6px;
-            }
-
-            /* EVENT */
-
-            .event-layout {
-                gap: 35px;
-            }
-
-            .ticket-top {
-                padding: 25px;
-            }
-
-            .ticket-title {
-                font-size: 36px;
-            }
-
-            .ticket-body {
-                grid-template-columns: 1fr;
-            }
-
-            .ticket-item {
-                border-right: 0 !important;
-            }
-
-            .ticket-item:last-child {
-                grid-column: auto;
-            }
-
-            .ticket-bottom {
-                display: block;
-            }
-
-            .map-button {
-                margin-top: 15px;
-                width: 100%;
-            }
-
-            /* COUNTDOWN */
-
-            .countdown {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-
-            .count-item:nth-child(2) {
-                border-right: 0;
-            }
-
-            .count-item:nth-child(1),
-            .count-item:nth-child(2) {
-                border-bottom:
-                    1px solid rgba(255,255,255,0.12);
-            }
-
-            /* JOURNEY */
-
-            .journey-head,
-            .gallery-head {
-                display: block;
-            }
-
-            .journey-number {
-                display: none;
-            }
-
-            .gallery-note {
-                margin-top: 18px;
-            }
-
-            .timeline-item {
-                grid-template-columns:
-                    70px 1fr;
-
-                gap: 18px;
-            }
-
-            .timeline-title {
-                font-size: 28px;
-            }
-
-            /* GALLERY */
-
-            .gallery {
-                grid-template-columns:
-                    repeat(2, 1fr);
-
-                grid-auto-rows: 170px;
-
-                gap: 8px;
-            }
-
-            .gallery-item:nth-child(1) {
-                grid-column: span 2;
-                grid-row: span 2;
-            }
-
-            .gallery-item:nth-child(4) {
-                grid-column: span 2;
-            }
-
-            /* WISHES */
-
-            .wishes-layout {
-                gap: 45px;
-            }
-
-            /* LOCATION */
-
-            .location-box {
-                padding: 28px;
-            }
-
-            /* FINAL */
-
-            .final-circle {
-                width: 350px;
-                height: 350px;
-            }
-
-            .final-title {
-                font-size: 64px;
-            }
-        }
-
-
-        /* =========================================================
-           VERY SMALL PHONE
-        ========================================================= */
-
-        @media (max-width: 380px) {
-
-            .guest-name {
-                font-size: 37px;
-            }
-
-            .cover-name {
-                font-size: 33px;
-            }
-
-            .hero-title {
-                font-size: 75px;
-            }
-
-            .gallery {
-                grid-auto-rows: 145px;
-            }
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<title>Undangan Wisuda Cindy</title>
+
+<meta
+    name="description"
+    content="Undangan Wisuda Cindy"
+/>
+
+<meta
+    property="og:title"
+    content="Undangan Wisuda Cindy"
+/>
+
+<meta
+    property="og:description"
+    content="Sebuah hari untuk merayakan perjalanan dan langkah baru."
+/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+>
+
+<link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+
+<style>
+
+:root{
+    --purple-950:#241044;
+    --purple-900:#32135c;
+    --purple-800:#4c1d95;
+    --purple-700:#6d28d9;
+    --purple-600:#7c3aed;
+    --purple-500:#8b5cf6;
+    --lavender:#c4b5fd;
+    --soft:#ede9fe;
+    --paper:#f8f7fc;
+    --white:#ffffff;
+    --ink:#28163f;
+    --muted:#756a82;
+    --line:rgba(76,29,149,.12);
+    --shadow:0 24px 70px rgba(50,19,92,.14);
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"DM Sans",sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    overflow-x:hidden;
+}
+
+button,
+input,
+textarea{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+/* =========================
+   DECORATION
+========================= */
+
+#flowerLayer,
+#glowLayer{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+    overflow:hidden;
+}
+
+.flower{
+    position:absolute;
+    font-size:20px;
+    color:rgba(196,181,253,.42);
+    animation:flowerFall linear infinite;
+}
+
+@keyframes flowerFall{
+    0%{
+        transform:translateY(-100px) rotate(0deg);
+        opacity:0;
+    }
+    10%{
+        opacity:.8;
+    }
+    90%{
+        opacity:.6;
+    }
+    100%{
+        transform:translateY(110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+.glow{
+    position:absolute;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    background:rgba(139,92,246,.12);
+    filter:blur(50px);
+    animation:glowMove 10s ease-in-out infinite alternate;
+}
+
+@keyframes glowMove{
+    from{
+        transform:translate(0,0) scale(1);
+    }
+    to{
+        transform:translate(80px,40px) scale(1.25);
+    }
+}
+
+/* =========================
+   OPENING
+========================= */
+
+.opening{
+    position:fixed;
+    inset:0;
+    z-index:1000;
+    background:
+        radial-gradient(circle at 20% 20%,rgba(196,181,253,.25),transparent 28%),
+        radial-gradient(circle at 85% 75%,rgba(139,92,246,.28),transparent 30%),
+        linear-gradient(145deg,#241044,#4c1d95 55%,#6d28d9);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    transition:
+        opacity .8s ease,
+        visibility .8s ease;
+}
+
+.opening.hide{
+    opacity:0;
+    visibility:hidden;
+}
+
+.opening-card{
+    position:relative;
+    width:min(540px,100%);
+    padding:55px 35px 42px;
+    text-align:center;
+    color:white;
+    border:1px solid rgba(255,255,255,.2);
+    background:rgba(255,255,255,.09);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    border-radius:36px;
+    box-shadow:0 30px 100px rgba(0,0,0,.25);
+}
+
+.opening-small{
+    letter-spacing:4px;
+    font-size:11px;
+    font-weight:700;
+    text-transform:uppercase;
+    color:#ddd1ff;
+}
+
+.opening-title{
+    font-family:"Great Vibes",cursive;
+    font-size:76px;
+    line-height:1;
+    margin:22px 0 8px;
+}
+
+.opening-name{
+    font-family:"Playfair Display",serif;
+    font-size:25px;
+    font-weight:600;
+}
+
+.opening-degree{
+    font-size:13px;
+    margin-top:8px;
+    color:#ddd1ff;
+}
+
+.opening-line{
+    width:60px;
+    height:1px;
+    background:#c4b5fd;
+    margin:28px auto;
+}
+
+.guest-label{
+    font-size:12px;
+    color:#d9ccfa;
+}
+
+.guest-name{
+    margin-top:7px;
+    font-family:"Playfair Display",serif;
+    font-size:21px;
+}
+
+.open-btn{
+    margin-top:30px;
+    padding:14px 28px;
+    border:none;
+    border-radius:999px;
+    background:white;
+    color:var(--purple-800);
+    font-weight:700;
+    box-shadow:0 10px 30px rgba(0,0,0,.18);
+    transition:.3s;
+}
+
+.open-btn:hover{
+    transform:translateY(-3px);
+}
+
+/* =========================
+   MAIN
+========================= */
+
+main{
+    position:relative;
+    z-index:1;
+}
+
+.section{
+    width:min(1120px,calc(100% - 36px));
+    margin:auto;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+    padding:90px 0 70px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.hero-left{
+    position:relative;
+}
+
+.hero-overline{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:var(--purple-700);
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+.hero-overline span{
+    width:45px;
+    height:1px;
+    background:var(--purple-500);
+}
+
+.hero-title{
+    font-family:"Playfair Display",serif;
+    font-size:clamp(48px,7vw,82px);
+    line-height:.98;
+    margin-top:25px;
+    color:var(--purple-950);
+}
+
+.hero-script{
+    font-family:"Great Vibes",cursive;
+    color:var(--purple-600);
+    font-size:clamp(48px,6vw,70px);
+    margin-top:10px;
+}
+
+.hero-description{
+    max-width:560px;
+    margin-top:28px;
+    color:var(--muted);
+    line-height:1.9;
+    font-size:15px;
+}
+
+.hero-date{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    margin-top:40px;
+}
+
+.date-number{
+    font-family:"Playfair Display",serif;
+    font-size:65px;
+    line-height:.8;
+    color:var(--purple-700);
+}
+
+.date-info{
+    border-left:1px solid var(--lavender);
+    padding-left:20px;
+}
+
+.date-info strong{
+    display:block;
+    font-size:14px;
+}
+
+.date-info span{
+    display:block;
+    margin-top:4px;
+    font-size:12px;
+    color:var(--muted);
+}
+
+.hero-photo{
+    position:relative;
+}
+
+.hero-photo-frame{
+    position:relative;
+    width:min(460px,100%);
+    margin:auto;
+    padding:13px;
+    background:white;
+    box-shadow:var(--shadow);
+    transform:rotate(2deg);
+}
+
+.hero-photo-frame img{
+    width:100%;
+    aspect-ratio:4/5;
+    object-fit:cover;
+}
+
+.hero-photo-label{
+    position:absolute;
+    left:-28px;
+    bottom:30px;
+    width:125px;
+    height:125px;
+    border-radius:50%;
+    background:var(--purple-700);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    font-family:"Playfair Display",serif;
+    font-size:14px;
+    line-height:1.5;
+    transform:rotate(-8deg);
+    box-shadow:0 15px 40px rgba(76,29,149,.25);
+}
+
+/* =========================
+   QUOTE BAND
+========================= */
+
+.quote-band{
+    margin-top:20px;
+    padding:85px 25px;
+    background:
+        radial-gradient(circle at 10% 50%,rgba(196,181,253,.2),transparent 25%),
+        linear-gradient(135deg,var(--purple-950),var(--purple-800));
+    color:white;
+    text-align:center;
+}
+
+.quote-mark{
+    font-family:"Playfair Display",serif;
+    font-size:70px;
+    line-height:.5;
+    color:var(--lavender);
+}
+
+.quote-text{
+    width:min(800px,100%);
+    margin:25px auto 0;
+    font-family:"Playfair Display",serif;
+    font-size:clamp(25px,4vw,40px);
+    line-height:1.45;
+}
+
+.quote-sub{
+    margin-top:20px;
+    color:#d9ccfa;
+    font-size:12px;
+    letter-spacing:2px;
+}
+
+/* =========================
+   EVENT
+========================= */
+
+.event-section{
+    padding:110px 0;
+}
+
+.section-heading{
+    text-align:center;
+    margin-bottom:55px;
+}
+
+.section-label{
+    color:var(--purple-600);
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+.section-title{
+    font-family:"Playfair Display",serif;
+    font-size:clamp(34px,5vw,52px);
+    margin-top:12px;
+    color:var(--purple-950);
+}
+
+.section-heading p{
+    max-width:600px;
+    margin:15px auto 0;
+    color:var(--muted);
+    line-height:1.8;
+}
+
+/* EVENT GRID */
+
+.event-layout{
+    display:grid;
+    grid-template-columns:340px 1fr;
+    gap:25px;
+}
+
+.big-date-card{
+    background:linear-gradient(145deg,var(--purple-800),var(--purple-600));
+    color:white;
+    padding:40px;
+    border-radius:30px;
+    min-height:390px;
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    box-shadow:var(--shadow);
+}
+
+.big-date-card::after{
+    content:"";
+    position:absolute;
+    width:230px;
+    height:230px;
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:50%;
+    right:-80px;
+    top:-60px;
+}
+
+.big-date-day{
+    font-family:"Playfair Display",serif;
+    font-size:145px;
+    line-height:.8;
+}
+
+.big-date-month{
+    font-size:16px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    margin-top:20px;
+}
+
+.big-date-year{
+    font-size:14px;
+    color:#ddd1ff;
+    margin-top:5px;
+}
+
+.event-info-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.info-card{
+    background:white;
+    border:1px solid var(--line);
+    border-radius:25px;
+    padding:30px;
+    min-height:185px;
+    box-shadow:0 10px 35px rgba(50,19,92,.05);
+}
+
+.info-icon{
+    width:45px;
+    height:45px;
+    border-radius:14px;
+    background:var(--soft);
+    color:var(--purple-700);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    margin-bottom:20px;
+}
+
+.info-card h3{
+    font-family:"Playfair Display",serif;
+    font-size:20px;
+    margin-bottom:8px;
+}
+
+.info-card p{
+    font-size:13px;
+    color:var(--muted);
+    line-height:1.7;
+}
+
+/* =========================
+   CALENDAR
+========================= */
+
+.calendar-wrap{
+    margin-top:25px;
+    padding:35px;
+    background:white;
+    border:1px solid var(--line);
+    border-radius:30px;
+    box-shadow:0 10px 35px rgba(50,19,92,.05);
+}
+
+.calendar-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:25px;
+}
+
+.calendar-header h3{
+    font-family:"Playfair Display",serif;
+    font-size:25px;
+}
+
+.calendar-header span{
+    font-size:12px;
+    color:var(--purple-600);
+    font-weight:700;
+}
+
+.calendar{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:7px;
+}
+
+.calendar-day-name{
+    text-align:center;
+    font-size:11px;
+    font-weight:700;
+    color:var(--muted);
+    padding:8px 0;
+}
+
+.calendar-date{
+    height:43px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:12px;
+    font-size:12px;
+}
+
+.calendar-date.active{
+    background:var(--purple-700);
+    color:white;
+    font-weight:700;
+    box-shadow:0 8px 20px rgba(109,40,217,.25);
+}
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown-section{
+    padding:0 0 110px;
+}
+
+.countdown{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.count-card{
+    padding:30px 15px;
+    background:var(--soft);
+    border-radius:24px;
+    text-align:center;
+}
+
+.count-card strong{
+    display:block;
+    font-family:"Playfair Display",serif;
+    font-size:42px;
+    color:var(--purple-800);
+}
+
+.count-card span{
+    display:block;
+    margin-top:5px;
+    font-size:10px;
+    letter-spacing:2px;
+    color:var(--muted);
+    text-transform:uppercase;
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery-section{
+    padding:100px 0;
+    background:white;
+}
+
+.gallery-inner{
+    width:min(1120px,calc(100% - 36px));
+    margin:auto;
+}
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    grid-auto-rows:220px;
+    gap:14px;
+}
+
+.gallery-item{
+    position:relative;
+    overflow:hidden;
+    border-radius:20px;
+    cursor:pointer;
+    background:var(--soft);
+}
+
+.gallery-item:nth-child(1){
+    grid-column:span 2;
+    grid-row:span 2;
+}
+
+.gallery-item:nth-child(6){
+    grid-column:span 2;
+}
+
+.gallery-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.6s ease;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.07);
+}
+
+.gallery-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(transparent,rgba(36,16,68,.4));
+    opacity:0;
+    transition:.3s;
+}
+
+.gallery-item:hover .gallery-overlay{
+    opacity:1;
+}
+
+/* =========================
+   VENUE
+========================= */
+
+.venue-section{
+    padding:110px 0;
+}
+
+.venue-layout{
+    display:grid;
+    grid-template-columns:390px 1fr;
+    min-height:510px;
+    border-radius:35px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+}
+
+.venue-card{
+    background:var(--purple-950);
+    color:white;
+    padding:45px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.venue-card .section-label{
+    color:var(--lavender);
+}
+
+.venue-card h2{
+    font-family:"Playfair Display",serif;
+    font-size:38px;
+    margin:18px 0;
+}
+
+.venue-card p{
+    color:#d8cbed;
+    font-size:14px;
+    line-height:1.8;
+}
+
+.map-btn{
+    display:inline-flex;
+    width:max-content;
+    margin-top:28px;
+    padding:13px 20px;
+    border-radius:999px;
+    background:var(--lavender);
+    color:var(--purple-950);
+    text-decoration:none;
+    font-size:12px;
+    font-weight:700;
+}
+
+#map{
+    width:100%;
+    min-height:510px;
+}
+
+/* =========================
+   JOURNEY
+========================= */
+
+.journey-section{
+    padding:110px 0;
+}
+
+.journey-card{
+    position:relative;
+    padding:80px 50px;
+    text-align:center;
+    background:var(--soft);
+    border-radius:40px;
+    overflow:hidden;
+}
+
+.journey-card::before{
+    content:"“";
+    position:absolute;
+    top:-20px;
+    left:30px;
+    font-family:"Playfair Display",serif;
+    font-size:180px;
+    color:rgba(124,58,237,.08);
+}
+
+.journey-card p{
+    position:relative;
+    width:min(760px,100%);
+    margin:auto;
+    font-family:"Playfair Display",serif;
+    font-size:clamp(25px,4vw,39px);
+    line-height:1.5;
+}
+
+.journey-author{
+    position:relative;
+    margin-top:25px;
+    font-size:12px;
+    letter-spacing:2px;
+    color:var(--purple-700);
+}
+
+/* =========================
+   WISHES
+========================= */
+
+.wishes-section{
+    padding:100px 0;
+    background:white;
+}
+
+.wishes-layout{
+    display:grid;
+    grid-template-columns:380px 1fr;
+    gap:35px;
+}
+
+.wishes-form{
+    background:var(--purple-950);
+    padding:35px;
+    border-radius:30px;
+    color:white;
+    height:max-content;
+}
+
+.wishes-form h2{
+    font-family:"Playfair Display",serif;
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.wishes-form > p{
+    color:#d8cbed;
+    font-size:13px;
+    line-height:1.7;
+    margin-bottom:25px;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+.form-group input,
+.form-group textarea{
+    width:100%;
+    border:none;
+    outline:none;
+    background:rgba(255,255,255,.1);
+    color:white;
+    border-radius:14px;
+    padding:13px 15px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder{
+    color:#b9aaca;
+}
+
+.form-group textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+.send-btn{
+    width:100%;
+    border:none;
+    border-radius:14px;
+    padding:13px;
+    background:var(--lavender);
+    color:var(--purple-950);
+    font-weight:700;
+}
+
+.wishes-list{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    max-height:520px;
+    overflow-y:auto;
+    padding-right:5px;
+}
+
+.wish-card{
+    padding:22px;
+    border:1px solid var(--line);
+    border-radius:20px;
+    background:var(--paper);
+}
+
+.wish-card strong{
+    display:block;
+    font-size:14px;
+    color:var(--purple-800);
+}
+
+.wish-card p{
+    margin-top:7px;
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.7;
+}
+
+/* =========================
+   CLOSING
+========================= */
+
+.closing{
+    padding:120px 20px;
+    text-align:center;
+    color:white;
+    background:
+        radial-gradient(circle at 20% 30%,rgba(196,181,253,.2),transparent 25%),
+        radial-gradient(circle at 80% 70%,rgba(139,92,246,.25),transparent 25%),
+        linear-gradient(145deg,var(--purple-950),var(--purple-700));
+}
+
+.closing-small{
+    color:var(--lavender);
+    font-size:11px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+}
+
+.closing-title{
+    font-family:"Great Vibes",cursive;
+    font-size:75px;
+    margin:20px 0;
+}
+
+.closing-date{
+    font-family:"Playfair Display",serif;
+    font-size:25px;
+}
+
+.calendar-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:30px;
+}
+
+.calendar-buttons a,
+.calendar-buttons button{
+    border:none;
+    text-decoration:none;
+    padding:13px 20px;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:700;
+}
+
+.calendar-google{
+    background:white;
+    color:var(--purple-800);
+}
+
+.calendar-ics{
+    background:rgba(255,255,255,.12);
+    color:white;
+    border:1px solid rgba(255,255,255,.2)!important;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    padding:25px;
+    text-align:center;
+    background:#1c0d34;
+    color:#aa9bbb;
+    font-size:11px;
+}
+
+/* =========================
+   MUSIC
+========================= */
+
+.music-btn{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    z-index:100;
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.3);
+    background:var(--purple-700);
+    color:white;
+    box-shadow:0 10px 30px rgba(36,16,68,.25);
+}
+
+.music-btn.playing{
+    animation:musicSpin 3s linear infinite;
+}
+
+@keyframes musicSpin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/* =========================
+   LIGHTBOX
+========================= */
+
+.lightbox{
+    position:fixed;
+    inset:0;
+    z-index:2000;
+    background:rgba(20,8,35,.94);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:25px;
+}
+
+.lightbox.show{
+    display:flex;
+}
+
+.lightbox img{
+    max-width:min(950px,95vw);
+    max-height:90vh;
+    object-fit:contain;
+    border-radius:15px;
+}
+
+.lightbox-close{
+    position:absolute;
+    top:20px;
+    right:25px;
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    border:none;
+    background:white;
+    color:var(--purple-900);
+    font-size:22px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+    .hero{
+        grid-template-columns:1fr;
+        gap:50px;
+        padding-top:70px;
+    }
+
+    .hero-photo{
+        order:-1;
+    }
+
+    .hero-photo-frame{
+        max-width:390px;
+    }
+
+    .event-layout{
+        grid-template-columns:1fr;
+    }
+
+    .big-date-card{
+        min-height:300px;
+    }
+
+    .big-date-day{
+        font-size:110px;
+    }
+
+    .venue-layout{
+        grid-template-columns:1fr;
+    }
+
+    #map{
+        min-height:380px;
+    }
+
+    .wishes-layout{
+        grid-template-columns:1fr;
+    }
+
+    .gallery-grid{
+        grid-template-columns:repeat(2,1fr);
+        grid-auto-rows:190px;
+    }
+
+    .gallery-item:nth-child(1){
+        grid-column:span 2;
+        grid-row:span 2;
+    }
+
+    .gallery-item:nth-child(6){
+        grid-column:span 1;
+    }
+}
+
+@media(max-width:600px){
+
+    .section{
+        width:min(100% - 26px,1120px);
+    }
+
+    .opening-card{
+        padding:45px 22px 35px;
+        border-radius:28px;
+    }
+
+    .opening-title{
+        font-size:61px;
+    }
+
+    .opening-name{
+        font-size:21px;
+    }
+
+    .hero{
+        min-height:auto;
+        padding:65px 0 60px;
+    }
+
+    .hero-title{
+        font-size:48px;
+    }
+
+    .hero-script{
+        font-size:52px;
+    }
+
+    .hero-photo-frame{
+        padding:8px;
+    }
+
+    .hero-photo-label{
+        width:95px;
+        height:95px;
+        left:-10px;
+        bottom:20px;
+        font-size:11px;
+    }
+
+    .quote-band{
+        padding:65px 20px;
+    }
+
+    .event-section,
+    .venue-section,
+    .journey-section,
+    .wishes-section{
+        padding:75px 0;
+    }
+
+    .event-info-grid{
+        grid-template-columns:1fr;
+    }
+
+    .calendar-wrap{
+        padding:22px 14px;
+    }
+
+    .calendar{
+        gap:3px;
+    }
+
+    .calendar-date{
+        height:38px;
+        font-size:11px;
+    }
+
+    .countdown{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .count-card strong{
+        font-size:34px;
+    }
+
+    .gallery-section{
+        padding:75px 0;
+    }
+
+    .gallery-inner{
+        width:calc(100% - 26px);
+    }
+
+    .gallery-grid{
+        grid-template-columns:repeat(2,1fr);
+        grid-auto-rows:145px;
+        gap:8px;
+    }
+
+    .gallery-item{
+        border-radius:13px;
+    }
+
+    .venue-card{
+        padding:32px;
+    }
+
+    #map{
+        min-height:330px;
+    }
+
+    .journey-card{
+        padding:65px 22px;
+        border-radius:28px;
+    }
+
+    .journey-card p{
+        font-size:24px;
+    }
+
+    .wishes-form{
+        padding:27px 22px;
+    }
+
+    .closing{
+        padding:90px 20px;
+    }
+
+    .closing-title{
+        font-size:58px;
+    }
+
+    .closing-date{
+        font-size:20px;
+    }
+
+}
+
+</style>
 </head>
 
+<body>
 
-<body class="locked">
+<div id="flowerLayer"></div>
+<div id="glowLayer"></div>
+
+<!-- =========================
+     OPENING
+========================= -->
+
+<section class="opening" id="opening">
+
+    <div class="opening-card">
+
+        <div class="opening-small">
+            Undangan Wisuda
+        </div>
+
+        <div class="opening-title">
+            Graduation Day
+        </div>
+
+        <div class="opening-name">
+            Cindy
+        </div>
+
+        <div class="opening-degree">
+            Sarjana Komputer • S1 Sistem Informasi
+        </div>
+
+        <div class="opening-line"></div>
+
+        <div class="guest-label">
+            Sebuah hari istimewa untuk
+        </div>
+
+        <div class="guest-name" id="guestName">
+            Tamu Undangan
+        </div>
+
+        <button class="open-btn" onclick="openInvitation()">
+            Buka Undangan
+        </button>
+
+    </div>
+
+</section>
 
 
-    <!-- =========================================================
-         LOADER
-    ========================================================= -->
+<main>
 
-    <div id="loader">
+<!-- =========================
+     HERO
+========================= -->
 
-        <div class="loader-content">
+<section class="section hero">
 
-            <div class="loader-small">
-                A Special Day
+    <div class="hero-left">
+
+        <div class="hero-overline">
+            <span></span>
+            A New Chapter
+        </div>
+
+        <h1 class="hero-title">
+            A Day<br>
+            Worth<br>
+            Remembering
+        </h1>
+
+        <div class="hero-script">
+            Cindy's Graduation
+        </div>
+
+        <p class="hero-description">
+            Setelah perjalanan panjang yang dipenuhi proses,
+            cerita, dan banyak hal yang telah dilewati,
+            akhirnya tiba satu hari untuk merayakan sebuah
+            pencapaian dan menyambut langkah berikutnya.
+        </p>
+
+        <div class="hero-date">
+
+            <div class="date-number">
+                18
             </div>
 
-            <div class="loader-name">
-                Cindy
-            </div>
-
-            <div class="loader-line"></div>
-
-            <div class="loader-text">
-                Preparing your invitation
+            <div class="date-info">
+                <strong>September 2026</strong>
+                <span>Jumat • 13.00—15.00 WIB</span>
             </div>
 
         </div>
@@ -2046,1677 +1341,1256 @@
     </div>
 
 
+    <div class="hero-photo">
 
-    <!-- =========================================================
-         COVER / HALAMAN DEPAN
-    ========================================================= -->
+        <div class="hero-photo-frame">
 
-    <section id="cover">
+            <img
+                src="foto-cindy.jpg"
+                alt="Foto Cindy"
+            >
 
-        <div class="cover-grid"></div>
-
-        <div class="cover-circle circle-1"></div>
-        <div class="cover-circle circle-2"></div>
-        <div class="cover-circle circle-3"></div>
-
-
-        <!-- Sparkles -->
-
-        <span class="sparkle" style="top:15%;left:18%;"></span>
-        <span class="sparkle" style="top:27%;left:72%;animation-delay:.8s;"></span>
-        <span class="sparkle" style="top:65%;left:14%;animation-delay:1.5s;"></span>
-        <span class="sparkle" style="top:74%;left:82%;animation-delay:2s;"></span>
-        <span class="sparkle" style="top:43%;left:91%;animation-delay:.4s;"></span>
-        <span class="sparkle" style="top:85%;left:42%;animation-delay:1.2s;"></span>
-
-
-        <div class="cover-inner">
-
-            <div class="cover-top">
-                Graduation Invitation
+            <div class="hero-photo-label">
+                This is<br>
+                the beginning<br>
+                of something new.
             </div>
 
-            <div class="cover-line"></div>
+        </div>
+
+    </div>
+
+</section>
 
 
-            <div class="cover-to">
-                Kepada Yth.
+<!-- =========================
+     QUOTE
+========================= -->
+
+<section class="quote-band">
+
+    <div class="quote-mark">
+        “
+    </div>
+
+    <div class="quote-text">
+        Satu perjalanan telah sampai di satu titik,
+        dan dari sini cerita baru dimulai.
+    </div>
+
+    <div class="quote-sub">
+        A LITTLE MOMENT • A BIG MILESTONE
+    </div>
+
+</section>
+
+
+<!-- =========================
+     EVENT
+========================= -->
+
+<section class="event-section">
+
+    <div class="section">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                Save The Date
+            </div>
+
+            <h2 class="section-title">
+                Mark This Day
+            </h2>
+
+            <p>
+                Catat tanggalnya dan mari hadir untuk
+                merayakan hari yang menjadi salah satu
+                bagian penting dalam perjalanan Cindy.
+            </p>
+
+        </div>
+
+
+        <div class="event-layout">
+
+            <div class="big-date-card">
+
+                <div>
+                    <div class="big-date-day">
+                        18
+                    </div>
+
+                    <div class="big-date-month">
+                        September
+                    </div>
+
+                    <div class="big-date-year">
+                        2026
+                    </div>
+                </div>
+
+                <div>
+                    <small>
+                        FRIDAY
+                    </small>
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <div class="event-info-grid">
+
+                    <div class="info-card">
+
+                        <div class="info-icon">
+                            ◷
+                        </div>
+
+                        <h3>
+                            Waktu
+                        </h3>
+
+                        <p>
+                            Jumat, 18 September 2026
+                            <br>
+                            13.00—15.00 WIB
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <div class="info-icon">
+                            ♡
+                        </div>
+
+                        <h3>
+                            Occasion
+                        </h3>
+
+                        <p>
+                            Perayaan Wisuda Cindy
+                            bersama keluarga,
+                            teman, dan orang-orang
+                            terdekat.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <div class="info-icon">
+                            ♧
+                        </div>
+
+                        <h3>
+                            Dress Code
+                        </h3>
+
+                        <p>
+                            Gunakan pakaian yang
+                            nyaman dan rapi untuk
+                            mengabadikan momen
+                            bersama.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <div class="info-icon">
+                            ✦
+                        </div>
+
+                        <h3>
+                            Moment
+                        </h3>
+
+                        <p>
+                            Datang dengan doa,
+                            cerita, dan semangat
+                            untuk ikut merayakan
+                            hari istimewa ini.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CALENDAR -->
+
+        <div class="calendar-wrap">
+
+            <div class="calendar-header">
+
+                <h3>
+                    September 2026
+                </h3>
+
+                <span>
+                    SAVE THE DATE
+                </span>
+
             </div>
 
             <div
-                class="guest-name"
-                id="guest-name"
-            >
-                Bapak / Ibu / Saudara/i
-            </div>
-
-
-            <div class="cover-divider"></div>
-
-
-            <div class="cover-invitation">
-                You are invited to
-            </div>
-
-            <div class="cover-name">
-                Cindy Arwinda
-            </div>
-
-            <div class="cover-degree">
-                S.Kom
-            </div>
-
-            <div class="cover-event">
-                Graduation Day
-            </div>
-
-
-            <button
-                class="open-button"
-                id="open-invitation"
-                type="button"
-            >
-                <span>
-                    Buka Undangan
-                </span>
-
-                <span class="open-arrow">
-                    →
-                </span>
-            </button>
+                class="calendar"
+                id="calendar"
+            ></div>
 
         </div>
-
-
-        <div class="cover-bottom">
-            Scroll untuk melihat cerita selengkapnya
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================================
-         MAIN CONTENT
-    ========================================================= -->
-
-    <main id="main-content">
-
-
-        <!-- =====================================================
-             HERO
-        ===================================================== -->
-
-        <section class="hero">
-
-            <div class="hero-content">
-
-                <div class="hero-kicker">
-                    Graduation Day · 2026
-                </div>
-
-                <h1 class="hero-title">
-                    <span>Cindy</span>
-                    <span class="second">Arwinda</span>
-                </h1>
-
-
-                <div class="hero-info">
-
-                    <p class="hero-description">
-                        Satu perjalanan telah sampai pada sebuah
-                        pencapaian. Hari ini bukan hanya tentang
-                        sebuah gelar, tetapi juga tentang proses,
-                        perjuangan, dan langkah yang telah dilalui.
-                    </p>
-
-                    <div class="hero-date">
-
-                        <small>
-                            The day
-                        </small>
-
-                        [Tanggal Acara]
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="hero-photo">
-
-                <img
-                    src="cindy.jpg"
-                    alt="Cindy Arwinda Putri"
-                    onerror="
-                        this.src='https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=85'
-                    "
-                >
-
-            </div>
-
-
-            <div class="hero-stamp">
-                Chapter<br>
-                Complete<br>
-                2026
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             QUOTE
-        ===================================================== -->
-
-        <section class="section quote-section">
-
-            <div class="quote-wrapper">
-
-                <div class="quote-mark">
-                    “
-                </div>
-
-                <p class="quote-text">
-                    Setiap langkah yang pernah terasa berat,
-                    akhirnya menjadi bagian dari cerita
-                    yang layak untuk dirayakan.
-                </p>
-
-                <div class="quote-author">
-                    Cindy Arwinda Putri
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             EVENT DETAILS
-        ===================================================== -->
-
-        <section class="section event-section">
-
-            <div class="container">
-
-                <div class="event-layout">
-
-
-                    <div class="event-intro">
-
-                        <div class="section-label">
-                            Save the date
-                        </div>
-
-                        <h2 class="section-title">
-                            Sebuah hari
-                            untuk dirayakan.
-                        </h2>
-
-                        <p class="section-subtitle">
-                            Dengan penuh rasa syukur, Cindy mengundang
-                            Anda untuk hadir dan menjadi bagian dari
-                            momen istimewa ini.
-                        </p>
-
-                    </div>
-
-
-                    <div class="ticket">
-
-                        <div class="ticket-top">
-
-                            <div class="ticket-brand">
-
-                                <span>
-                                    Graduation Event
-                                </span>
-
-                                <span>
-                                    2026
-                                </span>
-
-                            </div>
-
-                            <div class="ticket-title">
-                                Cindy<br>
-                                Arwinda
-                            </div>
-
-                        </div>
-
-
-                        <div class="ticket-body">
-
-
-                            <div class="ticket-item">
-
-                                <div class="ticket-label">
-                                    Tanggal
-                                </div>
-
-                                <div class="ticket-value">
-                                    [Tanggal]
-                                </div>
-
-                            </div>
-
-
-                            <div class="ticket-item">
-
-                                <div class="ticket-label">
-                                    Waktu
-                                </div>
-
-                                <div class="ticket-value">
-                                    [Jam]
-                                </div>
-
-                            </div>
-
-
-                            <div class="ticket-item">
-
-                                <div class="ticket-label">
-                                    Tempat
-                                </div>
-
-                                <div class="ticket-value">
-                                    [Nama Tempat]
-                                </div>
-
-                            </div>
-
-
-                            <div class="ticket-item">
-
-                                <div class="ticket-label">
-                                    Dress Code
-                                </div>
-
-                                <div class="ticket-value">
-                                    [Dress Code]
-                                </div>
-
-                            </div>
-
-
-                            <div class="ticket-item">
-
-                                <div class="ticket-label">
-                                    Alamat
-                                </div>
-
-                                <div class="ticket-address">
-                                    [Alamat lengkap lokasi acara]
-                                </div>
-
-                            </div>
-
-
-                        </div>
-
-
-                        <div class="ticket-bottom">
-
-                            <div class="ticket-code">
-                                CINDY · GRADUATION
-                            </div>
-
-                            <button
-                                class="map-button"
-                                id="map-button"
-                                type="button"
-                            >
-                                Buka Lokasi
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             COUNTDOWN
-        ===================================================== -->
-
-        <section class="section countdown-section">
-
-            <div class="container">
-
-                <div class="section-label">
-                    Counting the moment
-                </div>
-
-                <h2 class="section-title">
-                    Menuju hari
-                    yang dinanti.
-                </h2>
-
-                <p class="section-subtitle">
-                    Waktu terus berjalan menuju sebuah
-                    halaman baru.
-                </p>
-
-
-                <div class="countdown">
-
-                    <div class="count-item">
-
-                        <div
-                            class="count-number"
-                            id="days"
-                        >
-                            --
-                        </div>
-
-                        <div class="count-label">
-                            Hari
-                        </div>
-
-                    </div>
-
-
-                    <div class="count-item">
-
-                        <div
-                            class="count-number"
-                            id="hours"
-                        >
-                            --
-                        </div>
-
-                        <div class="count-label">
-                            Jam
-                        </div>
-
-                    </div>
-
-
-                    <div class="count-item">
-
-                        <div
-                            class="count-number"
-                            id="minutes"
-                        >
-                            --
-                        </div>
-
-                        <div class="count-label">
-                            Menit
-                        </div>
-
-                    </div>
-
-
-                    <div class="count-item">
-
-                        <div
-                            class="count-number"
-                            id="seconds"
-                        >
-                            --
-                        </div>
-
-                        <div class="count-label">
-                            Detik
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div id="countdown-message">
-                    Countdown akan aktif setelah tanggal acara diatur.
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             JOURNEY
-        ===================================================== -->
-
-        <section class="section journey-section">
-
-            <div class="container">
-
-
-                <div class="journey-head">
-
-                    <div>
-
-                        <div class="section-label">
-                            The journey
-                        </div>
-
-                        <h2 class="section-title">
-                            Dari proses
-                            menuju pencapaian.
-                        </h2>
-
-                        <p class="section-subtitle">
-                            Tidak semua perjalanan terlihat mudah,
-                            tetapi setiap bagian memiliki cerita
-                            yang akhirnya membawa sampai ke hari ini.
-                        </p>
-
-                    </div>
-
-
-                    <div class="journey-number">
-                        04
-                    </div>
-
-                </div>
-
-
-                <div class="timeline">
-
-
-                    <div class="timeline-item">
-
-                        <div class="timeline-year">
-                            01
-                        </div>
-
-                        <div>
-
-                            <h3 class="timeline-title">
-                                The Beginning
-                            </h3>
-
-                            <p class="timeline-text">
-                                Memulai perjalanan perkuliahan dengan
-                                banyak hal baru, tantangan baru,
-                                dan pengalaman yang perlahan membentuk
-                                sebuah cerita.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="timeline-item">
-
-                        <div class="timeline-year">
-                            02
-                        </div>
-
-                        <div>
-
-                            <h3 class="timeline-title">
-                                The Process
-                            </h3>
-
-                            <p class="timeline-text">
-                                Ada tugas, revisi, rasa khawatir,
-                                dan berbagai proses yang harus dilewati.
-                                Semua menjadi bagian dari perjalanan
-                                menuju tahap akhir.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="timeline-item">
-
-                        <div class="timeline-year">
-                            03
-                        </div>
-
-                        <div>
-
-                            <h3 class="timeline-title">
-                                The Final Chapter
-                            </h3>
-
-                            <p class="timeline-text">
-                                Satu per satu proses diselesaikan.
-                                Sampai akhirnya tiba pada hari
-                                yang menjadi penanda selesainya
-                                satu perjalanan.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="timeline-item">
-
-                        <div class="timeline-year">
-                            04
-                        </div>
-
-                        <div>
-
-                            <h3 class="timeline-title">
-                                The Next Chapter
-                            </h3>
-
-                            <p class="timeline-text">
-                                Wisuda bukan akhir dari semuanya.
-                                Ini adalah awal dari cerita berikutnya,
-                                dengan langkah dan kesempatan yang baru.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             GALLERY
-        ===================================================== -->
-
-        <section class="section gallery-section">
-
-            <div class="container">
-
-
-                <div class="gallery-head">
-
-                    <div>
-
-                        <div class="section-label">
-                            Little memories
-                        </div>
-
-                        <h2 class="section-title">
-                            Potongan
-                            cerita.
-                        </h2>
-
-                    </div>
-
-                    <p class="gallery-note">
-                        Beberapa momen yang menjadi bagian
-                        dari perjalanan Cindy sampai di titik ini.
-                    </p>
-
-                </div>
-
-
-                <div class="gallery">
-
-
-                    <div
-                        class="gallery-item"
-                        data-image="cindy.jpg"
-                    >
-
-                        <img
-                            src="cindy.jpg"
-                            alt="Cindy Arwinda"
-                            onerror="
-                                this.src='https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=85'
-                            "
-                        >
-
-                        <div class="gallery-overlay">
-                            <span>
-                                Memory 01
-                            </span>
-                        </div>
-
-                    </div>
-
-
-                    <div
-                        class="gallery-item"
-                        data-image="cindy-2.jpg"
-                    >
-
-                        <img
-                            src="cindy-2.jpg"
-                            alt="Memory 02"
-                            onerror="
-                                this.src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=700&q=85'
-                            "
-                        >
-
-                        <div class="gallery-overlay">
-                            <span>
-                                Memory 02
-                            </span>
-                        </div>
-
-                    </div>
-
-
-                    <div
-                        class="gallery-item"
-                        data-image="cindy-3.jpg"
-                    >
-
-                        <img
-                            src="cindy-3.jpg"
-                            alt="Memory 03"
-                            onerror="
-                                this.src='https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=700&q=85'
-                            "
-                        >
-
-                        <div class="gallery-overlay">
-                            <span>
-                                Memory 03
-                            </span>
-                        </div>
-
-                    </div>
-
-
-                    <div
-                        class="gallery-item"
-                        data-image="cindy-4.jpg"
-                    >
-
-                        <img
-                            src="cindy-4.jpg"
-                            alt="Memory 04"
-                            onerror="
-                                this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=85'
-                            "
-                        >
-
-                        <div class="gallery-overlay">
-                            <span>
-                                Memory 04
-                            </span>
-                        </div>
-
-                    </div>
-
-
-                    <div
-                        class="gallery-item"
-                        data-image="cindy-5.jpg"
-                    >
-
-                        <img
-                            src="cindy-5.jpg"
-                            alt="Memory 05"
-                            onerror="
-                                this.src='https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=700&q=85'
-                            "
-                        >
-
-                        <div class="gallery-overlay">
-                            <span>
-                                Memory 05
-                            </span>
-                        </div>
-
-                    </div>
-
-
-                    <div
-                        class="gallery-item"
-                        data-image="cindy-6.jpg"
-                    >
-
-                        <img
-                            src="cindy-6.jpg"
-                            alt="Memory 06"
-                            onerror="
-                                this.src='https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=700&q=85'
-                            "
-                        >
-
-                        <div class="gallery-overlay">
-                            <span>
-                                Memory 06
-                            </span>
-                        </div>
-
-                    </div>
-
-
-                    <div
-                        class="gallery-item"
-                        data-image="cindy-7.jpg"
-                    >
-
-                        <img
-                            src="cindy-7.jpg"
-                            alt="Memory 07"
-                            onerror="
-                                this.src='https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=700&q=85'
-                            "
-                        >
-
-                        <div class="gallery-overlay">
-                            <span>
-                                Memory 07
-                            </span>
-                        </div>
-
-                    </div>
-
-
-                    <div
-                        class="gallery-item"
-                        data-image="cindy-8.jpg"
-                    >
-
-                        <img
-                            src="cindy-8.jpg"
-                            alt="Memory 08"
-                            onerror="
-                                this.src='https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=700&q=85'
-                            "
-                        >
-
-                        <div class="gallery-overlay">
-                            <span>
-                                Memory 08
-                            </span>
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             WISHES
-        ===================================================== -->
-
-        <section class="section wishes-section">
-
-            <div class="container">
-
-                <div class="wishes-layout">
-
-
-                    <div>
-
-                        <div class="section-label">
-                            Guestbook
-                        </div>
-
-                        <h2 class="section-title">
-                            Tinggalkan
-                            ucapan.
-                        </h2>
-
-                        <p class="section-subtitle">
-                            Tulis doa, ucapan, atau pesan singkat
-                            untuk Cindy di hari spesial ini.
-                        </p>
-
-
-                        <form
-                            class="wishes-form"
-                            id="wish-form"
-                        >
-
-                            <div class="field">
-
-                                <label for="wish-name">
-                                    Nama
-                                </label>
-
-                                <input
-                                    type="text"
-                                    id="wish-name"
-                                    placeholder="Nama kamu"
-                                    required
-                                >
-
-                            </div>
-
-
-                            <div class="field">
-
-                                <label for="wish-message">
-                                    Ucapan
-                                </label>
-
-                                <textarea
-                                    id="wish-message"
-                                    placeholder="Tulis ucapan untuk Cindy..."
-                                    required
-                                ></textarea>
-
-                            </div>
-
-
-                            <button
-                                class="submit-button"
-                                type="submit"
-                            >
-                                Kirim Ucapan
-                            </button>
-
-                        </form>
-
-                    </div>
-
-
-                    <div
-                        class="wishes-list"
-                        id="wishes-list"
-                    >
-
-                        <div class="wish-empty">
-                            Belum ada ucapan.
-                            Jadilah yang pertama memberikan
-                            pesan untuk Cindy.
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             LOCATION
-        ===================================================== -->
-
-        <section class="section location-section">
-
-            <div class="container">
-
-                <div class="location-grid">
-
-
-                    <div>
-
-                        <div class="section-label">
-                            The venue
-                        </div>
-
-                        <h2 class="section-title">
-                            Sampai jumpa
-                            di sana.
-                        </h2>
-
-                        <p class="location-text">
-                            Kehadiran dan doa baik dari orang-orang
-                            terdekat menjadi bagian yang berarti
-                            dalam momen ini.
-                        </p>
-
-                    </div>
-
-
-                    <div class="location-box">
-
-                        <div class="location-icon">
-                            ⌖
-                        </div>
-
-                        <div class="location-name">
-                            [Nama Tempat]
-                        </div>
-
-                        <div class="location-address">
-                            [Alamat lengkap lokasi acara]
-                        </div>
-
-
-                        <button
-                            class="location-button"
-                            id="location-button"
-                            type="button"
-                        >
-                            Lihat di Google Maps
-                        </button>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             FINAL CLOSING
-        ===================================================== -->
-
-        <section class="final-section">
-
-            <div class="final-circle"></div>
-
-            <div class="final-content">
-
-                <div class="final-small">
-                    One chapter ends
-                </div>
-
-                <div class="final-title">
-                    Another<br>
-                    begins.
-                </div>
-
-                <div class="final-name">
-                    Cindy Arwinda Putri, S.Kom
-                </div>
-
-                <p class="final-text">
-                    Terima kasih telah menjadi bagian dari
-                    perjalanan ini. Semoga setiap langkah
-                    berikutnya membawa cerita yang lebih baik.
-                </p>
-
-            </div>
-
-        </section>
-
-
-    </main>
-
-
-
-    <!-- =========================================================
-         FOOTER
-    ========================================================= -->
-
-    <footer>
-
-        © 2026 · Cindy Arwinda Putri, S.Kom · Graduation Day
-
-    </footer>
-
-
-
-    <!-- =========================================================
-         MUSIC BUTTON
-    ========================================================= -->
-
-    <button
-        id="music-button"
-        type="button"
-        aria-label="Putar musik"
-    >
-        ♫
-    </button>
-
-    <audio
-        id="background-music"
-        loop
-        preload="none"
-    >
-        <source
-            src="audio.mp3"
-            type="audio/mpeg"
-        >
-    </audio>
-
-
-
-    <!-- =========================================================
-         LIGHTBOX
-    ========================================================= -->
-
-    <div id="lightbox">
-
-        <button
-            class="lightbox-close"
-            id="lightbox-close"
-            type="button"
-            aria-label="Tutup"
-        >
-            ×
-        </button>
-
-        <img
-            id="lightbox-image"
-            src=""
-            alt="Gallery"
-        >
 
     </div>
 
+</section>
 
 
-    <!-- =========================================================
-         JAVASCRIPT
-    ========================================================= -->
+<!-- =========================
+     COUNTDOWN
+========================= -->
 
-    <script>
+<section class="countdown-section">
 
-        /* =======================================================
-           KONFIGURASI ACARA
-        ======================================================= */
+    <div class="section">
 
-        /*
-         * Isi tanggal dengan format:
-         *
-         * "2026-09-18T10:00:00+07:00"
-         *
-         * Contoh di atas hanya contoh format.
-         * Ganti dengan tanggal dan jam wisuda Cindy yang sebenarnya.
-         */
+        <div class="section-heading">
 
-        const EVENT_DATE = "";
+            <div class="section-label">
+                Counting Down
+            </div>
 
-        /*
-         * Masukkan link Google Maps lokasi acara di sini.
-         *
-         * Contoh:
-         *
-         * const GOOGLE_MAP_URL = "https://maps.google.com/...";
-         */
+            <h2 class="section-title">
+                Until The Day
+            </h2>
 
-        const GOOGLE_MAP_URL = "";
+        </div>
 
+        <div class="countdown">
 
-        /* =======================================================
-           LOADER
-        ======================================================= */
+            <div class="count-card">
+                <strong id="days">0</strong>
+                <span>Days</span>
+            </div>
 
-        window.addEventListener("load", function () {
+            <div class="count-card">
+                <strong id="hours">0</strong>
+                <span>Hours</span>
+            </div>
 
-            setTimeout(function () {
+            <div class="count-card">
+                <strong id="minutes">0</strong>
+                <span>Minutes</span>
+            </div>
 
-                const loader =
-                    document.getElementById("loader");
+            <div class="count-card">
+                <strong id="seconds">0</strong>
+                <span>Seconds</span>
+            </div>
 
-                loader.classList.add("hide");
+        </div>
 
-            }, 900);
+    </div>
 
-        });
+</section>
 
 
-        /* =======================================================
-           NAMA TAMU DARI URL
-        ======================================================= */
+<!-- =========================
+     GALLERY
+========================= -->
 
-        /*
-         * Bisa digunakan seperti:
-         *
-         * index.html?to=Nama%20Tamu
-         *
-         * Maka cover akan menampilkan:
-         *
-         * Kepada Yth.
-         * Nama Tamu
-         */
+<section class="gallery-section">
 
-        const params =
-            new URLSearchParams(window.location.search);
+    <div class="gallery-inner">
 
-        const guest =
-            params.get("to");
+        <div class="section-heading">
 
-        const guestElement =
-            document.getElementById("guest-name");
+            <div class="section-label">
+                Little Pieces
+            </div>
 
-        if (guest && guest.trim() !== "") {
+            <h2 class="section-title">
+                Captured Moments
+            </h2>
 
-            guestElement.textContent =
-                decodeURIComponent(guest)
-                .replace(/\+/g, " ");
+            <p>
+                Beberapa potongan cerita yang menjadi
+                bagian dari perjalanan menuju hari ini.
+            </p>
 
-        }
+        </div>
 
 
-        /* =======================================================
-           BUKA UNDANGAN
-        ======================================================= */
+        <div class="gallery-grid">
 
-        const cover =
-            document.getElementById("cover");
+            <div class="gallery-item">
+                <img src="foto-cindy.jpg" alt="Foto Cindy">
+                <div class="gallery-overlay"></div>
+            </div>
 
-        const mainContent =
-            document.getElementById("main-content");
+            <div class="gallery-item">
+                <img src="foto-2.jpg" alt="Foto 2">
+                <div class="gallery-overlay"></div>
+            </div>
 
-        const openButton =
-            document.getElementById("open-invitation");
+            <div class="gallery-item">
+                <img src="foto-3.jpg" alt="Foto 3">
+                <div class="gallery-overlay"></div>
+            </div>
 
+            <div class="gallery-item">
+                <img src="foto-4.jpg" alt="Foto 4">
+                <div class="gallery-overlay"></div>
+            </div>
 
-        openButton.addEventListener("click", function () {
+            <div class="gallery-item">
+                <img src="foto-5.jpg" alt="Foto 5">
+                <div class="gallery-overlay"></div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="foto-6.jpg" alt="Foto 6">
+                <div class="gallery-overlay"></div>
+            </div>
 
-            cover.classList.add("opened");
+            <div class="gallery-item">
+                <img src="foto-7.jpg" alt="Foto 7">
+                <div class="gallery-overlay"></div>
+            </div>
 
-            mainContent.classList.add("visible");
+            <div class="gallery-item">
+                <img src="foto-8.jpg" alt="Foto 8">
+                <div class="gallery-overlay"></div>
+            </div>
 
-            document.body.classList.remove("locked");
+            <div class="gallery-item">
+                <img src="foto-9.jpg" alt="Foto 9">
+                <div class="gallery-overlay"></div>
+            </div>
 
-            window.scrollTo({
-                top: 0,
-                behavior: "instant"
-            });
+            <div class="gallery-item">
+                <img src="foto-10.jpg" alt="Foto 10">
+                <div class="gallery-overlay"></div>
+            </div>
 
-            /*
-             * Coba memainkan musik setelah user
-             * melakukan klik.
-             */
+            <div class="gallery-item">
+                <img src="foto-11.jpg" alt="Foto 11">
+                <div class="gallery-overlay"></div>
+            </div>
 
-            const music =
-                document.getElementById("background-music");
+            <div class="gallery-item">
+                <img src="foto-12.jpg" alt="Foto 12">
+                <div class="gallery-overlay"></div>
+            </div>
 
-            const musicButton =
-                document.getElementById("music-button");
+            <div class="gallery-item">
+                <img src="foto-13.jpg" alt="Foto 13">
+                <div class="gallery-overlay"></div>
+            </div>
 
-            music.play()
-                .then(function () {
+            <div class="gallery-item">
+                <img src="foto-14.jpg" alt="Foto 14">
+                <div class="gallery-overlay"></div>
+            </div>
 
-                    musicButton.classList.add("active");
-                    musicButton.classList.add("playing");
+            <div class="gallery-item">
+                <img src="foto-15.jpg" alt="Foto 15">
+                <div class="gallery-overlay"></div>
+            </div>
 
-                })
-                .catch(function () {
+            <div class="gallery-item">
+                <img src="foto-16.jpg" alt="Foto 16">
+                <div class="gallery-overlay"></div>
+            </div>
 
-                    musicButton.classList.add("active");
+            <div class="gallery-item">
+                <img src="foto-17.jpg" alt="Foto 17">
+                <div class="gallery-overlay"></div>
+            </div>
 
-                });
+            <div class="gallery-item">
+                <img src="foto-18.jpg" alt="Foto 18">
+                <div class="gallery-overlay"></div>
+            </div>
 
-        });
+            <div class="gallery-item">
+                <img src="foto-19.jpg" alt="Foto 19">
+                <div class="gallery-overlay"></div>
+            </div>
 
+            <div class="gallery-item">
+                <img src="foto-20.jpg" alt="Foto 20">
+                <div class="gallery-overlay"></div>
+            </div>
 
-        /* =======================================================
-           COUNTDOWN
-        ======================================================= */
+        </div>
 
-        function updateCountdown() {
+    </div>
 
-            if (!EVENT_DATE) {
+</section>
 
-                document.getElementById("days").textContent = "--";
-                document.getElementById("hours").textContent = "--";
-                document.getElementById("minutes").textContent = "--";
-                document.getElementById("seconds").textContent = "--";
 
-                return;
+<!-- =========================
+     VENUE
+========================= -->
 
-            }
+<section class="venue-section">
 
+    <div class="section">
 
-            const target =
-                new Date(EVENT_DATE).getTime();
+        <div class="section-heading">
 
-            const now =
-                new Date().getTime();
+            <div class="section-label">
+                Find Us Here
+            </div>
 
-            const difference =
-                target - now;
+            <h2 class="section-title">
+                The Celebration Place
+            </h2>
 
+        </div>
 
-            if (difference <= 0) {
 
-                document.getElementById("days").textContent = "00";
-                document.getElementById("hours").textContent = "00";
-                document.getElementById("minutes").textContent = "00";
-                document.getElementById("seconds").textContent = "00";
+        <div class="venue-layout">
 
-                document.getElementById("countdown-message")
-                    .textContent =
-                    "Hari yang dinanti telah tiba.";
+            <div class="venue-card">
 
-                return;
+                <div class="section-label">
+                    Venue
+                </div>
 
-            }
+                <h2>
+                    Fakultas Teknologi Informasi
+                </h2>
 
+                <p>
+                    Universitas Andalas<br>
+                    Limau Manis, Padang
+                </p>
 
-            const days =
-                Math.floor(
-                    difference /
-                    (1000 * 60 * 60 * 24)
-                );
+                <a
+                    class="map-btn"
+                    href="https://www.google.com/maps/search/?api=1&query=Fakultas+Teknologi+Informasi+Universitas+Andalas"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Buka Google Maps →
+                </a>
 
-            const hours =
-                Math.floor(
-                    (difference %
-                        (1000 * 60 * 60 * 24)) /
-                    (1000 * 60 * 60)
-                );
+            </div>
 
-            const minutes =
-                Math.floor(
-                    (difference %
-                        (1000 * 60 * 60)) /
-                    (1000 * 60)
-                );
+            <div id="map"></div>
 
-            const seconds =
-                Math.floor(
-                    (difference %
-                        (1000 * 60)) /
-                    1000
-                );
+        </div>
 
+    </div>
 
-            document.getElementById("days")
-                .textContent =
-                String(days).padStart(2, "0");
+</section>
 
-            document.getElementById("hours")
-                .textContent =
-                String(hours).padStart(2, "0");
 
-            document.getElementById("minutes")
-                .textContent =
-                String(minutes).padStart(2, "0");
+<!-- =========================
+     JOURNEY
+========================= -->
 
-            document.getElementById("seconds")
-                .textContent =
-                String(seconds).padStart(2, "0");
+<section class="journey-section">
 
+    <div class="section">
 
-            document.getElementById("countdown-message")
-                .textContent =
-                "Menuju hari istimewa Cindy.";
+        <div class="journey-card">
 
-        }
+            <p>
+                Tidak semua langkah harus cepat.
+                Yang penting, setiap langkah membawa
+                kita lebih dekat kepada tempat yang
+                ingin kita tuju.
+            </p>
 
+            <div class="journey-author">
+                FOR THE JOURNEY THAT BROUGHT US HERE
+            </div>
 
-        updateCountdown();
+        </div>
 
-        setInterval(
-            updateCountdown,
-            1000
+    </div>
+
+</section>
+
+
+<!-- =========================
+     WISHES
+========================= -->
+
+<section class="wishes-section">
+
+    <div class="section">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                Leave A Note
+            </div>
+
+            <h2 class="section-title">
+                A Few Words For Cindy
+            </h2>
+
+            <p>
+                Tinggalkan ucapan, doa, atau pesan kecil
+                untuk menjadi bagian dari hari ini.
+            </p>
+
+        </div>
+
+
+        <div class="wishes-layout">
+
+            <form
+                class="wishes-form"
+                id="wishForm"
+            >
+
+                <h2>
+                    Send Your Wishes
+                </h2>
+
+                <p>
+                    Tulis pesan singkat untuk Cindy.
+                </p>
+
+                <div class="form-group">
+
+                    <input
+                        type="text"
+                        id="wishName"
+                        placeholder="Nama kamu"
+                        required
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <textarea
+                        id="wishMessage"
+                        placeholder="Tulis ucapan..."
+                        required
+                    ></textarea>
+
+                </div>
+
+                <button
+                    class="send-btn"
+                    type="submit"
+                >
+                    Kirim Ucapan
+                </button>
+
+            </form>
+
+
+            <div
+                class="wishes-list"
+                id="wishesList"
+            >
+
+                <div class="wish-card">
+
+                    <strong>
+                        Keluarga & Sahabat
+                    </strong>
+
+                    <p>
+                        Selamat atas pencapaian hari ini.
+                        Semoga langkah berikutnya selalu
+                        dipenuhi hal-hal baik.
+                    </p>
+
+                </div>
+
+                <div class="wish-card">
+
+                    <strong>
+                        Best Wishes
+                    </strong>
+
+                    <p>
+                        Congratulations, Cindy!
+                        Semoga perjalanan setelah ini
+                        membawa banyak kesempatan baru.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CLOSING
+========================= -->
+
+<section class="closing">
+
+    <div class="closing-small">
+        See You On The Day
+    </div>
+
+    <div class="closing-title">
+        See You There
+    </div>
+
+    <div class="closing-date">
+        18 September 2026
+    </div>
+
+    <div class="calendar-buttons">
+
+        <a
+            class="calendar-google"
+            href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wisuda+Cindy&dates=20260918T130000/20260918T150000&details=Perayaan+Wisuda+Cindy&location=Fakultas+Teknologi+Informasi%2C+Universitas+Andalas%2C+Limau+Manis%2C+Padang"
+            target="_blank"
+            rel="noopener"
+        >
+            + Google Calendar
+        </a>
+
+        <button
+            class="calendar-ics"
+            onclick="downloadICS()"
+        >
+            Download Calendar
+        </button>
+
+    </div>
+
+</section>
+
+
+<footer>
+    Made with love for Cindy's Graduation Day ♡
+</footer>
+
+</main>
+
+
+<!-- =========================
+     LIGHTBOX
+========================= -->
+
+<div
+    class="lightbox"
+    id="lightbox"
+    onclick="closeLightbox(event)"
+>
+
+    <button
+        class="lightbox-close"
+        onclick="closeLightbox()"
+    >
+        ×
+    </button>
+
+    <img
+        id="lightboxImage"
+        src=""
+        alt="Preview"
+    >
+
+</div>
+
+
+<!-- =========================
+     MUSIC
+========================= -->
+
+<audio
+    id="audio"
+    src="audio.mp3"
+    loop
+></audio>
+
+<button
+    class="music-btn"
+    id="musicBtn"
+    onclick="toggleMusic()"
+>
+    ♫
+</button>
+
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+
+/* =========================
+   GUEST NAME
+========================= */
+
+const params = new URLSearchParams(window.location.search);
+const guest = params.get("to");
+
+if(guest){
+
+    document.getElementById("guestName").textContent =
+        decodeURIComponent(
+            guest.replace(/\+/g," ")
         );
 
+}
 
-        /* =======================================================
-           GOOGLE MAPS
-        ======================================================= */
 
-        function openMap() {
+/* =========================
+   OPEN INVITATION
+========================= */
 
-            if (GOOGLE_MAP_URL) {
+function openInvitation(){
 
-                window.open(
-                    GOOGLE_MAP_URL,
-                    "_blank"
-                );
+    const opening =
+        document.getElementById("opening");
 
-            } else {
+    opening.classList.add("hide");
 
-                alert(
-                    "Link lokasi belum diatur. Silakan isi GOOGLE_MAP_URL pada bagian konfigurasi JavaScript."
-                );
+    const audio =
+        document.getElementById("audio");
 
-            }
+    audio.play()
+        .then(()=>{
+            document
+                .getElementById("musicBtn")
+                .classList.add("playing");
+        })
+        .catch(()=>{});
+
+}
+
+
+/* =========================
+   FLOWERS
+========================= */
+
+const flowerLayer =
+    document.getElementById("flowerLayer");
+
+const flowerSymbols = [
+    "✦",
+    "✧",
+    "❋",
+    "✿",
+    "·"
+];
+
+for(let i=0;i<32;i++){
+
+    const flower =
+        document.createElement("div");
+
+    flower.className = "flower";
+
+    flower.textContent =
+        flowerSymbols[
+            Math.floor(
+                Math.random()*flowerSymbols.length
+            )
+        ];
+
+    flower.style.left =
+        Math.random()*100 + "%";
+
+    flower.style.animationDuration =
+        (9 + Math.random()*13) + "s";
+
+    flower.style.animationDelay =
+        Math.random()*10 + "s";
+
+    flower.style.fontSize =
+        (8 + Math.random()*18) + "px";
+
+    flowerLayer.appendChild(flower);
+
+}
+
+
+/* =========================
+   GLOW
+========================= */
+
+const glowLayer =
+    document.getElementById("glowLayer");
+
+for(let i=0;i<10;i++){
+
+    const glow =
+        document.createElement("div");
+
+    glow.className = "glow";
+
+    glow.style.left =
+        Math.random()*100 + "%";
+
+    glow.style.top =
+        Math.random()*100 + "%";
+
+    glow.style.animationDelay =
+        Math.random()*5 + "s";
+
+    glowLayer.appendChild(glow);
+
+}
+
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+const targetDate =
+    new Date(
+        "2026-09-18T13:00:00+07:00"
+    ).getTime();
+
+function updateCountdown(){
+
+    const now =
+        new Date().getTime();
+
+    const distance =
+        targetDate - now;
+
+    if(distance <= 0){
+
+        document.getElementById("days").textContent = "0";
+        document.getElementById("hours").textContent = "0";
+        document.getElementById("minutes").textContent = "0";
+        document.getElementById("seconds").textContent = "0";
+
+        return;
+
+    }
+
+    const days =
+        Math.floor(
+            distance / (1000*60*60*24)
+        );
+
+    const hours =
+        Math.floor(
+            (distance % (1000*60*60*24))
+            / (1000*60*60)
+        );
+
+    const minutes =
+        Math.floor(
+            (distance % (1000*60*60))
+            / (1000*60)
+        );
+
+    const seconds =
+        Math.floor(
+            (distance % (1000*60))
+            / 1000
+        );
+
+    document.getElementById("days").textContent =
+        days;
+
+    document.getElementById("hours").textContent =
+        String(hours).padStart(2,"0");
+
+    document.getElementById("minutes").textContent =
+        String(minutes).padStart(2,"0");
+
+    document.getElementById("seconds").textContent =
+        String(seconds).padStart(2,"0");
+
+}
+
+updateCountdown();
+
+setInterval(updateCountdown,1000);
+
+
+/* =========================
+   CALENDAR
+========================= */
+
+function renderCalendar(){
+
+    const calendar =
+        document.getElementById("calendar");
+
+    calendar.innerHTML = "";
+
+    const dayNames = [
+        "Min",
+        "Sen",
+        "Sel",
+        "Rab",
+        "Kam",
+        "Jum",
+        "Sab"
+    ];
+
+    dayNames.forEach(day=>{
+
+        const el =
+            document.createElement("div");
+
+        el.className =
+            "calendar-day-name";
+
+        el.textContent =
+            day;
+
+        calendar.appendChild(el);
+
+    });
+
+
+    const year = 2026;
+    const month = 8;
+
+    const firstDay =
+        new Date(
+            year,
+            month,
+            1
+        ).getDay();
+
+    const totalDays =
+        new Date(
+            year,
+            month + 1,
+            0
+        ).getDate();
+
+
+    for(let i=0;i<firstDay;i++){
+
+        const empty =
+            document.createElement("div");
+
+        empty.className =
+            "calendar-date";
+
+        calendar.appendChild(empty);
+
+    }
+
+
+    for(let day=1;day<=totalDays;day++){
+
+        const el =
+            document.createElement("div");
+
+        el.className =
+            "calendar-date";
+
+        el.textContent =
+            day;
+
+        if(day === 18){
+
+            el.classList.add("active");
 
         }
 
+        calendar.appendChild(el);
+
+    }
+
+}
+
+renderCalendar();
+
+
+/* =========================
+   GALLERY LIGHTBOX
+========================= */
+
+const galleryItems =
+    document.querySelectorAll(".gallery-item");
+
+galleryItems.forEach(item=>{
+
+    item.addEventListener("click",()=>{
+
+        const img =
+            item.querySelector("img");
+
+        document.getElementById(
+            "lightboxImage"
+        ).src = img.src;
+
+        document.getElementById(
+            "lightbox"
+        ).classList.add("show");
+
+    });
+
+});
+
+
+function closeLightbox(event){
+
+    if(
+        !event ||
+        event.target.id === "lightbox" ||
+        event.target.classList.contains("lightbox-close")
+    ){
+
+        document.getElementById(
+            "lightbox"
+        ).classList.remove("show");
+
+    }
+
+}
+
+
+document.addEventListener("keydown",event=>{
+
+    if(event.key === "Escape"){
+
+        document.getElementById(
+            "lightbox"
+        ).classList.remove("show");
+
+    }
+
+});
+
+
+/* =========================
+   MAP
+========================= */
+
+const FTI_LAT = -0.91482;
+const FTI_LNG = 100.46039;
+
+const map =
+    L.map("map");
+
+L.tileLayer(
+    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    {
+        maxZoom:19,
+        attribution:
+            '&copy; OpenStreetMap contributors'
+    }
+).addTo(map);
+
+map.setView(
+    [FTI_LAT,FTI_LNG],
+    16
+);
+
+L.marker([
+    FTI_LAT,
+    FTI_LNG
+])
+.addTo(map)
+.bindPopup(
+    "<b>Fakultas Teknologi Informasi</b><br>Universitas Andalas"
+)
+.openPopup();
+
+setTimeout(()=>{
+    map.invalidateSize();
+},500);
+
+
+/* =========================
+   MUSIC
+========================= */
+
+const audio =
+    document.getElementById("audio");
+
+const musicBtn =
+    document.getElementById("musicBtn");
+
+function toggleMusic(){
+
+    if(audio.paused){
+
+        audio.play()
+            .then(()=>{
+                musicBtn.classList.add("playing");
+            })
+            .catch(()=>{});
+
+    }else{
+
+        audio.pause();
+
+        musicBtn.classList.remove("playing");
+
+    }
+
+}
+
+
+/* =========================
+   WISHES
+========================= */
+
+document
+    .getElementById("wishForm")
+    .addEventListener("submit",function(e){
+
+        e.preventDefault();
+
+        const name =
+            document.getElementById("wishName")
+                .value.trim();
+
+        const message =
+            document.getElementById("wishMessage")
+                .value.trim();
+
+        if(!name || !message){
+
+            return;
+
+        }
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "wish-card";
+
+        const strong =
+            document.createElement("strong");
+
+        strong.textContent =
+            name;
+
+        const p =
+            document.createElement("p");
+
+        p.textContent =
+            message;
+
+        card.appendChild(strong);
+        card.appendChild(p);
 
         document
-            .getElementById("map-button")
-            .addEventListener(
-                "click",
-                openMap
-            );
+            .getElementById("wishesList")
+            .prepend(card);
+
+        this.reset();
+
+    });
 
 
-        document
-            .getElementById("location-button")
-            .addEventListener(
-                "click",
-                openMap
-            );
+/* =========================
+   ICS
+========================= */
 
+function downloadICS(){
 
-        /* =======================================================
-           LIGHTBOX GALLERY
-        ======================================================= */
+    const ics = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//Cindy Graduation//EN",
+        "BEGIN:VEVENT",
+        "UID:cindy-graduation-20260918",
+        "DTSTAMP:20260101T000000Z",
+        "DTSTART:20260918T060000Z",
+        "DTEND:20260918T080000Z",
+        "SUMMARY:Wisuda Cindy",
+        "DESCRIPTION:Perayaan Wisuda Cindy",
+        "LOCATION:Fakultas Teknologi Informasi, Universitas Andalas, Limau Manis, Padang",
+        "END:VEVENT",
+        "END:VCALENDAR"
+    ].join("\r\n");
 
-        const lightbox =
-            document.getElementById("lightbox");
-
-        const lightboxImage =
-            document.getElementById("lightbox-image");
-
-        const lightboxClose =
-            document.getElementById("lightbox-close");
-
-
-        document
-            .querySelectorAll(".gallery-item")
-            .forEach(function (item) {
-
-                item.addEventListener(
-                    "click",
-                    function () {
-
-                        const image =
-                            item.querySelector("img");
-
-                        lightboxImage.src =
-                            image.src;
-
-                        lightbox.classList.add("show");
-
-                        document.body.classList.add("locked");
-
-                    }
-                );
-
-            });
-
-
-        function closeLightbox() {
-
-            lightbox.classList.remove("show");
-
-            document.body.classList.remove("locked");
-
-        }
-
-
-        lightboxClose.addEventListener(
-            "click",
-            closeLightbox
-        );
-
-
-        lightbox.addEventListener(
-            "click",
-            function (event) {
-
-                if (
-                    event.target === lightbox
-                ) {
-
-                    closeLightbox();
-
-                }
-
+    const blob =
+        new Blob(
+            [ics],
+            {
+                type:"text/calendar;charset=utf-8"
             }
         );
 
+    const url =
+        URL.createObjectURL(blob);
 
-        document.addEventListener(
-            "keydown",
-            function (event) {
+    const link =
+        document.createElement("a");
 
-                if (
-                    event.key === "Escape"
-                ) {
+    link.href = url;
 
-                    closeLightbox();
+    link.download =
+        "wisuda-cindy-18-september-2026.ics";
 
-                }
+    document.body.appendChild(link);
 
-            }
-        );
+    link.click();
 
+    document.body.removeChild(link);
 
-        /* =======================================================
-           UCAPAN / GUESTBOOK
-        ======================================================= */
+    URL.revokeObjectURL(url);
 
-        const wishForm =
-            document.getElementById("wish-form");
-
-        const wishesList =
-            document.getElementById("wishes-list");
-
-        const STORAGE_KEY =
-            "cindyGraduationWishes";
+}
 
 
-        function getWishes() {
+/* =========================
+   IMAGE ORIENTATION
+========================= */
 
-            try {
+document
+    .querySelectorAll(".gallery-item img")
+    .forEach(img=>{
 
-                return JSON.parse(
-                    localStorage.getItem(
-                        STORAGE_KEY
-                    )
-                ) || [];
+        if(img.complete){
 
-            } catch (error) {
+            checkOrientation(img);
 
-                return [];
+        }else{
 
-            }
-
-        }
-
-
-        function saveWishes(wishes) {
-
-            localStorage.setItem(
-                STORAGE_KEY,
-                JSON.stringify(wishes)
-            );
-
-        }
-
-
-        function escapeHTML(text) {
-
-            const div =
-                document.createElement("div");
-
-            div.textContent = text;
-
-            return div.innerHTML;
-
-        }
-
-
-        function formatDate(dateString) {
-
-            const date =
-                new Date(dateString);
-
-            return date.toLocaleString(
-                "id-ID",
-                {
-                    day: "2-digit",
-                    month: "short",
-                    year: "numeric",
-                    hour: "2-digit",
-                    minute: "2-digit"
+            img.addEventListener(
+                "load",
+                ()=>{
+                    checkOrientation(img);
                 }
             );
 
         }
 
-
-        function renderWishes() {
-
-            const wishes =
-                getWishes();
+    });
 
 
-            if (wishes.length === 0) {
+function checkOrientation(img){
 
-                wishesList.innerHTML = `
-                    <div class="wish-empty">
-                        Belum ada ucapan.
-                        Jadilah yang pertama memberikan
-                        pesan untuk Cindy.
-                    </div>
-                `;
+    if(
+        img.naturalWidth >
+        img.naturalHeight
+    ){
 
-                return;
+        img.parentElement
+            .classList.add("is-landscape");
 
-            }
+    }
 
+}
 
-            wishesList.innerHTML =
-                wishes
-                    .slice()
-                    .reverse()
-                    .map(function (wish) {
-
-                        return `
-                            <div class="wish">
-
-                                <div class="wish-name">
-                                    ${escapeHTML(wish.name)}
-                                </div>
-
-                                <div class="wish-message">
-                                    ${escapeHTML(wish.message)}
-                                </div>
-
-                                <div class="wish-time">
-                                    ${formatDate(wish.date)}
-                                </div>
-
-                            </div>
-                        `;
-
-                    })
-                    .join("");
-
-        }
-
-
-        wishForm.addEventListener(
-            "submit",
-            function (event) {
-
-                event.preventDefault();
-
-
-                const name =
-                    document
-                        .getElementById("wish-name")
-                        .value
-                        .trim();
-
-                const message =
-                    document
-                        .getElementById("wish-message")
-                        .value
-                        .trim();
-
-
-                if (
-                    !name ||
-                    !message
-                ) {
-
-                    return;
-
-                }
-
-
-                const wishes =
-                    getWishes();
-
-
-                wishes.push({
-
-                    name: name,
-
-                    message: message,
-
-                    date:
-                        new Date()
-                            .toISOString()
-
-                });
-
-
-                saveWishes(wishes);
-
-                renderWishes();
-
-                wishForm.reset();
-
-
-                alert(
-                    "Ucapan berhasil ditambahkan."
-                );
-
-            }
-        );
-
-
-        renderWishes();
-
-
-        /* =======================================================
-           MUSIC
-        ======================================================= */
-
-        const music =
-            document.getElementById(
-                "background-music"
-            );
-
-        const musicButton =
-            document.getElementById(
-                "music-button"
-            );
-
-
-        musicButton.addEventListener(
-            "click",
-            function () {
-
-                if (music.paused) {
-
-                    music.play()
-                        .then(function () {
-
-                            musicButton.classList.add(
-                                "playing"
-                            );
-
-                        })
-                        .catch(function () {});
-
-                } else {
-
-                    music.pause();
-
-                    musicButton.classList.remove(
-                        "playing"
-                    );
-
-                }
-
-            }
-        );
-
-
-    </script>
+</script>
 
 </body>
 </html>
