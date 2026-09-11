@@ -112,23 +112,23 @@ button{
 
 .petal{
     position:absolute;
-    top:-30px;
+    top:-40px;
 
-    width:10px;
-    height:15px;
+    width:12px;
+    height:18px;
 
     background:linear-gradient(
         135deg,
         #eee7f5,
-        #d0c1df
+        #c5b3d8
     );
 
     border-radius:70% 20% 70% 20%;
 
-    opacity:.45;
+    opacity:.72;
 
     filter:drop-shadow(
-        0 3px 5px rgba(93,76,112,.10)
+        0 3px 6px rgba(93,76,112,.18)
     );
 
     animation:
@@ -139,14 +139,37 @@ button{
 
     0%{
         transform:
-            translateY(-30px)
+            translateY(-40px)
+            translateX(0)
             rotate(0deg);
+    }
+
+    25%{
+        transform:
+            translateY(25vh)
+            translateX(35px)
+            rotate(140deg);
+    }
+
+    50%{
+        transform:
+            translateY(50vh)
+            translateX(-30px)
+            rotate(280deg);
+    }
+
+    75%{
+        transform:
+            translateY(75vh)
+            translateX(25px)
+            rotate(410deg);
     }
 
     100%{
         transform:
             translateY(110vh)
-            rotate(540deg);
+            translateX(-20px)
+            rotate(560deg);
     }
 }
 
@@ -229,8 +252,8 @@ button{
 
     position:absolute;
 
-    width:340px;
-    height:340px;
+    width:420px;
+    height:420px;
 
     left:50%;
     top:50%;
@@ -245,18 +268,12 @@ button{
     background-position:center;
     background-repeat:no-repeat;
 
-    /*
-       Hidden Easter egg:
-       sangat samar supaya menyatu
-       dengan gradient.
-    */
-
-    opacity:.06;
+    opacity:.80;
 
     filter:
-        blur(2px);
+        blur(.5px);
 
-    mix-blend-mode:soft-light;
+    mix-blend-mode:normal;
 
     pointer-events:none;
 
@@ -2174,13 +2191,15 @@ footer{
 
     .opening::before{
 
-        width:280px;
-        height:280px;
+        width:320px;
+        height:320px;
 
-        opacity:.055;
+        opacity:.80;
 
         filter:
-            blur(2.5px);
+            blur(.5px);
+
+        mix-blend-mode:normal;
     }
 
     .hero{
@@ -3251,6 +3270,76 @@ if(guest){
 
 
 /* =========================================================
+   PETALS + SPARKLES
+   DIBUAT LANGSUNG SAAT HALAMAN DIMUAT
+========================================================= */
+
+function createDecorations(){
+
+    const layer =
+        document.getElementById("petalLayer");
+
+
+    /* PETALS */
+
+    for(let i=0;i<45;i++){
+
+        const petal =
+            document.createElement("div");
+
+        petal.className =
+            "petal";
+
+        petal.style.left =
+            Math.random()*100 + "%";
+
+        petal.style.animationDuration =
+            (7 + Math.random()*8) + "s";
+
+        petal.style.animationDelay =
+            (-Math.random()*10) + "s";
+
+        petal.style.transform =
+            `rotate(${Math.random()*360}deg)`;
+
+        petal.style.width =
+            (9 + Math.random()*7) + "px";
+
+        petal.style.height =
+            (13 + Math.random()*9) + "px";
+
+        layer.appendChild(petal);
+
+    }
+
+
+    /* SPARKLES */
+
+    for(let i=22;i<40;i++){
+
+        const sparkle =
+            document.createElement("div");
+
+        sparkle.className =
+            "sparkle";
+
+        sparkle.style.left =
+            Math.random()*100 + "%";
+
+        sparkle.style.top =
+            Math.random()*100 + "%";
+
+        sparkle.style.animationDelay =
+            Math.random()*4 + "s";
+
+        layer.appendChild(sparkle);
+
+    }
+
+}
+
+
+/* =========================================================
    OPEN INVITATION
 ========================================================= */
 
@@ -3288,73 +3377,14 @@ function openInvitation(){
         })
         .catch(() => {});
 
-
-    createDecorations();
-
 }
 
 
 /* =========================================================
-   PETALS + SPARKLES
+   CREATE DECORATIONS SAAT HALAMAN DIMUAT
 ========================================================= */
 
-function createDecorations(){
-
-    const layer =
-        document.getElementById("petalLayer");
-
-
-    /* PETALS */
-
-    for(let i=0;i<24;i++){
-
-        const petal =
-            document.createElement("div");
-
-        petal.className =
-            "petal";
-
-        petal.style.left =
-            Math.random()*100 + "%";
-
-        petal.style.animationDuration =
-            (7 + Math.random()*8) + "s";
-
-        petal.style.animationDelay =
-            Math.random()*5 + "s";
-
-        petal.style.transform =
-            `rotate(${Math.random()*360}deg)`;
-
-        layer.appendChild(petal);
-
-    }
-
-
-    /* SPARKLES */
-
-    for(let i=0;i<18;i++){
-
-        const sparkle =
-            document.createElement("div");
-
-        sparkle.className =
-            "sparkle";
-
-        sparkle.style.left =
-            Math.random()*100 + "%";
-
-        sparkle.style.top =
-            Math.random()*100 + "%";
-
-        sparkle.style.animationDelay =
-            Math.random()*4 + "s";
-
-        layer.appendChild(sparkle);
-
-    }
-
-}
+createDecorations();
 
 
 /* =========================================================
