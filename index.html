@@ -219,9 +219,20 @@ button{
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    ENHYPEN WATERMARK
---------------------------------------------------------- */
+========================================================= */
+
+/*
+   Watermark berada di tengah cover,
+   di belakang opening-card.
+
+   File yang dibaca:
+   enhypen-logo.png
+
+   Letakkan file tersebut satu folder
+   dengan index.html.
+*/
 
 .opening::before{
 
@@ -239,32 +250,44 @@ button{
         translate(-50%,-50%);
 
     background-image:
-        url("enhypen-logo.png");
+        url("./enhypen-logo.png");
 
-    background-size:contain;
-    background-position:center;
-    background-repeat:no-repeat;
+    background-size:
+        contain;
+
+    background-position:
+        center;
+
+    background-repeat:
+        no-repeat;
 
     /*
-       Hidden Easter egg:
-       sangat samar supaya menyatu
+       Cukup terlihat kalau diperhatikan,
+       tetapi tetap subtle.
+    */
+
+    opacity:.09;
+
+    filter:
+        blur(1px);
+
+    /*
+       Jangan gunakan soft-light karena
+       bisa membuat logo terlalu menyatu
        dengan gradient.
     */
 
-    opacity:.06;
-
-    filter:
-        blur(2px);
-
-    mix-blend-mode:soft-light;
+    mix-blend-mode:normal;
 
     pointer-events:none;
 
-    z-index:0;
+    z-index:1;
 }
 
 
-/* subtle glow di sekitar watermark */
+/* =========================================================
+   SUBTLE GLOW
+========================================================= */
 
 .opening::after{
 
@@ -294,9 +317,9 @@ button{
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    OPENING CARD
---------------------------------------------------------- */
+========================================================= */
 
 .opening-card{
 
@@ -602,7 +625,9 @@ main{
 }
 
 
-/* HERO PHOTO */
+/* =========================================================
+   HERO PHOTO
+========================================================= */
 
 .hero-photo-wrap{
 
@@ -2129,6 +2154,7 @@ footer{
 
 }
 
+
 @media(max-width:700px){
 
     .section{
@@ -2161,6 +2187,7 @@ footer{
 
 }
 
+
 @media(max-width:600px){
 
     .opening-card{
@@ -2172,16 +2199,24 @@ footer{
             45px 24px;
     }
 
+
+    /* =====================================================
+       MOBILE ENHYPEN WATERMARK
+    ===================================================== */
+
     .opening::before{
 
         width:280px;
         height:280px;
 
-        opacity:.055;
+        opacity:.08;
 
         filter:
-            blur(2.5px);
+            blur(1px);
+
+        mix-blend-mode:normal;
     }
+
 
     .hero{
 
@@ -2729,7 +2764,6 @@ footer{
                 <img src="foto-7.jpg" alt="">
             </div>
 
-
             <div class="gallery-photo">
                 <img src="foto-cindy.jpg" alt="">
             </div>
@@ -2797,7 +2831,6 @@ footer{
                 <img src="foto-14.jpg" alt="">
             </div>
 
-
             <div class="gallery-photo">
                 <img src="foto-8.jpg" alt="">
             </div>
@@ -2864,7 +2897,6 @@ footer{
             <div class="gallery-photo">
                 <img src="foto-cindy.jpg" alt="">
             </div>
-
 
             <div class="gallery-photo">
                 <img src="foto-15.jpg" alt="">
