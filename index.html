@@ -16,21 +16,6 @@
     content="Undangan Wisuda Cindy Arwinda Putri, S.Kom"
 >
 
-<meta
-    property="og:title"
-    content="Undangan Wisuda Cindy Arwinda Putri, S.Kom"
->
-
-<meta
-    property="og:description"
-    content="Undangan Wisuda Cindy Arwinda Putri, S.Kom"
->
-
-<meta
-    property="og:type"
-    content="website"
->
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -46,2570 +31,2666 @@
 
 <style>
 
-/* =========================================================
-   ROOT
-========================================================= */
+:root{
+    --purple-dark:#4a3a63;
+    --purple-deep:#66537f;
+    --purple:#8a72a8;
+    --violet:#a18bc0;
+    --violet-light:#b6a4d0;
+    --lavender:#d8cce8;
+    --lavender-soft:#f1ecf7;
+    --cream:#fcfafe;
+    --white:#ffffff;
 
-:root {
-    --purple-dark: #35224f;
-    --purple: #63427c;
-    --purple-soft: #8c6ba4;
-    --purple-light: #b89bc8;
+    --text:#40364a;
+    --muted:#7e7485;
 
-    --cream: #faf7f2;
-    --cream-dark: #eee7df;
-
-    --text: #3e3345;
-    --muted: #786b7d;
-
-    --white: #ffffff;
+    --line:rgba(138,114,168,.16);
 
     --shadow:
-        0 20px 60px rgba(49, 29, 66, .12);
-
-    --radius: 24px;
+        0 25px 70px rgba(93,76,112,.10);
 }
 
-/* =========================================================
-   RESET
-========================================================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-html {
-    scroll-behavior: smooth;
+html{
+    scroll-behavior:smooth;
 }
 
-body {
-    font-family: "DM Sans", sans-serif;
-    background: var(--cream);
-    color: var(--text);
-    overflow-x: hidden;
+body{
+    font-family:"DM Sans",sans-serif;
+    background:
+        linear-gradient(
+            180deg,
+            #fcfafe 0%,
+            #f7f2fb 45%,
+            #fcfafe 100%
+        );
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+body.locked{
+    overflow:hidden;
+}
+
+img{
+    max-width:100%;
+    display:block;
 }
 
 button,
-a,
 input,
-textarea {
-    font-family: inherit;
+textarea{
+    font:inherit;
 }
 
-button {
-    cursor: pointer;
+/* =========================
+   PETALS
+========================= */
+
+#petalLayer{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:20;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
+.petal{
+    position:absolute;
+    top:-30px;
+    width:10px;
+    height:15px;
+    background:rgba(255,255,255,.75);
+    border-radius:70% 30% 70% 30%;
+    filter:blur(.2px);
+    animation:fall linear forwards;
 }
 
-/* =========================================================
-   PETAL / SPARKLE LAYER
-========================================================= */
-
-#petalLayer {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 9999;
-}
-
-.petal {
-    position: absolute;
-    top: -30px;
-    width: 7px;
-    height: 11px;
-    border-radius: 70% 30% 70% 30%;
-    background: rgba(255,255,255,.42);
-    animation: fall linear forwards;
-}
-
-@keyframes fall {
-
-    0% {
+@keyframes fall{
+    0%{
         transform:
-            translate3d(0, -20px, 0)
+            translate3d(0,-20px,0)
             rotate(0deg);
-        opacity: 0;
+        opacity:0;
     }
 
-    10% {
-        opacity: .7;
+    10%{
+        opacity:.8;
     }
 
-    90% {
-        opacity: .45;
-    }
-
-    100% {
+    100%{
         transform:
-            translate3d(100px, 110vh, 0)
-            rotate(360deg);
-        opacity: 0;
+            translate3d(120px,110vh,0)
+            rotate(420deg);
+        opacity:0;
     }
-
 }
 
-/* =========================================================
-   OPENING / COVER
-========================================================= */
+/* =========================
+   SPARKLES
+========================= */
 
-.opening {
-    position: fixed;
-    inset: 0;
+.sparkle{
+    position:absolute;
+    width:4px;
+    height:4px;
+    background:#fff;
+    border-radius:50%;
+    box-shadow:0 0 12px rgba(255,255,255,.9);
+    animation:sparkle 3s ease-in-out infinite;
+}
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+@keyframes sparkle{
+    0%,
+    100%{
+        opacity:.15;
+        transform:scale(.6);
+    }
 
-    padding: 24px;
+    50%{
+        opacity:.9;
+        transform:scale(1.4);
+    }
+}
+
+/* =========================
+   OPENING COVER
+========================= */
+
+.opening{
+    position:fixed;
+    inset:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
     background:
         radial-gradient(
-            circle at 50% 20%,
-            rgba(196, 158, 220, .28),
-            transparent 34%
+            circle at 20% 20%,
+            rgba(255,255,255,.20),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(255,255,255,.14),
+            transparent 35%
         ),
         linear-gradient(
-            145deg,
-            #302044 0%,
-            #503367 46%,
-            #72518a 100%
+            135deg,
+            #4a3a63 0%,
+            #66537f 45%,
+            #8a72a8 100%
         );
 
-    z-index: 1000;
-
-    overflow: hidden;
+    z-index:1000;
 
     transition:
         opacity .8s ease,
         visibility .8s ease;
 }
 
-/* =========================================================
+/* =========================
    ENHYPEN WATERMARK
-========================================================= */
+   ========================= */
 
-.opening::before {
+.opening::before{
+    content:"";
 
-    content: "";
+    position:absolute;
 
-    position: absolute;
+    width:420px;
+    height:420px;
 
-    width: 380px;
-    height: 380px;
+    left:50%;
+    top:50%;
 
-    left: 50%;
-    top: 50%;
+    transform:translate(-50%,-50%);
 
-    transform: translate(-50%, -50%);
+    background-image:url("./enhypen-logo.png");
 
-    background-image:
-        url("./enhypen-logo.png");
+    background-size:contain;
+    background-position:center;
+    background-repeat:no-repeat;
 
-    background-repeat: no-repeat;
+    opacity:.50;
 
-    background-position: center;
+    filter:blur(.5px);
 
-    background-size: contain;
+    mix-blend-mode:normal;
 
-    /*
-       DIBUAT LEBIH KELIHATAN
-       tapi tetap seperti watermark
-    */
+    pointer-events:none;
 
-    opacity: .18;
-
-    filter:
-        blur(.6px)
-        brightness(1.15)
-        contrast(.9);
-
-    mix-blend-mode: screen;
-
-    pointer-events: none;
-
-    z-index: 1;
+    z-index:1;
 }
 
-/* =========================================================
-   OPENING GLOW
-========================================================= */
+.opening::after{
+    content:"";
 
-.opening::after {
+    position:absolute;
 
-    content: "";
+    width:520px;
+    height:520px;
 
-    position: absolute;
+    left:50%;
+    top:50%;
 
-    width: 520px;
-    height: 520px;
-
-    left: 50%;
-    top: 50%;
-
-    transform: translate(-50%, -50%);
-
-    border-radius: 50%;
+    transform:translate(-50%,-50%);
 
     background:
         radial-gradient(
             circle,
-            rgba(255,255,255,.09),
+            rgba(255,255,255,.10),
             transparent 65%
         );
 
-    pointer-events: none;
+    pointer-events:none;
 
-    z-index: 0;
+    z-index:1;
 }
 
-/* =========================================================
+.opening.hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+/* =========================
    OPENING CARD
-========================================================= */
+========================= */
 
-.opening-card {
+.opening-card{
+    position:relative;
 
-    position: relative;
+    width:min(520px,90%);
 
-    width: min(470px, 100%);
+    padding:52px 35px;
 
-    padding: 54px 30px 48px;
-
-    text-align: center;
-
-    border-radius: 30px;
+    text-align:center;
 
     background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.13),
-            rgba(255,255,255,.07)
-        );
-
-    border:
-        1px solid rgba(255,255,255,.24);
-
-    box-shadow:
-        0 30px 90px rgba(0,0,0,.25);
-
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-
-    z-index: 2;
-
-    color: white;
-}
-
-.opening-small {
-
-    font-size: 11px;
-
-    letter-spacing: 4px;
-
-    text-transform: uppercase;
-
-    opacity: .78;
-
-    margin-bottom: 22px;
-}
-
-.opening-title {
-
-    font-family: "Playfair Display", serif;
-
-    font-size: 28px;
-
-    line-height: 1.3;
-
-    font-weight: 500;
-
-    margin-bottom: 22px;
-}
-
-.opening-name {
-
-    font-family: "Great Vibes", cursive;
-
-    font-size: 54px;
-
-    line-height: 1.15;
-
-    margin-bottom: 8px;
-}
-
-.opening-degree {
-
-    font-family: "Playfair Display", serif;
-
-    font-size: 18px;
-
-    letter-spacing: 1px;
-
-    margin-bottom: 30px;
-}
-
-.opening-divider {
-
-    width: 70px;
-    height: 1px;
-
-    margin: 0 auto 25px;
-
-    background: rgba(255,255,255,.55);
-}
-
-.opening-guest {
-
-    font-size: 13px;
-
-    opacity: .8;
-
-    margin-bottom: 26px;
-}
-
-.opening-guest strong {
-
-    display: block;
-
-    margin-top: 7px;
-
-    font-size: 16px;
-
-    color: white;
-}
-
-.open-button {
-
-    border: 0;
-
-    padding: 13px 27px;
-
-    border-radius: 999px;
-
-    background: rgba(255,255,255,.94);
-
-    color: #4c3561;
-
-    font-weight: 600;
-
-    font-size: 13px;
-
-    letter-spacing: .3px;
-
-    box-shadow:
-        0 10px 25px rgba(0,0,0,.16);
-
-    transition: .3s ease;
-}
-
-.open-button:hover {
-
-    transform: translateY(-2px);
-
-    background: white;
-
-    box-shadow:
-        0 14px 30px rgba(0,0,0,.22);
-}
-
-/* =========================================================
-   OPENING HIDDEN
-========================================================= */
-
-.opening.hide {
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    pointer-events: none;
-}
-
-/* =========================================================
-   MAIN
-========================================================= */
-
-main {
-    overflow: hidden;
-}
-
-.section {
-
-    width: min(1080px, calc(100% - 40px));
-
-    margin: 0 auto;
-
-    padding: 90px 0;
-}
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero {
-
-    min-height: 100vh;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    text-align: center;
-
-    background:
-        radial-gradient(
-            circle at top,
-            rgba(143,105,166,.16),
-            transparent 45%
-        );
-}
-
-.hero-inner {
-    max-width: 850px;
-}
-
-.hero-kicker {
-
-    text-transform: uppercase;
-
-    letter-spacing: 4px;
-
-    font-size: 11px;
-
-    color: var(--purple-soft);
-
-    margin-bottom: 18px;
-}
-
-.hero h1 {
-
-    font-family: "Playfair Display", serif;
-
-    font-size:
-        clamp(38px, 7vw, 76px);
-
-    font-weight: 500;
-
-    line-height: 1.08;
-
-    color: var(--purple-dark);
-
-    margin-bottom: 25px;
-}
-
-.hero-script {
-
-    font-family: "Great Vibes", cursive;
-
-    color: var(--purple);
-
-    font-size:
-        clamp(42px, 7vw, 68px);
-
-    margin-bottom: 20px;
-}
-
-.hero-description {
-
-    max-width: 620px;
-
-    margin: 0 auto 38px;
-
-    line-height: 1.8;
-
-    color: var(--muted);
-
-    font-size: 15px;
-}
-
-.hero-photo {
-
-    width: 190px;
-    height: 190px;
-
-    margin: 0 auto;
-
-    border-radius: 50%;
-
-    padding: 6px;
-
-    background:
-        linear-gradient(
-            145deg,
-            var(--purple-light),
-            var(--purple)
-        );
-
-    box-shadow: var(--shadow);
-}
-
-.hero-photo img {
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    border-radius: 50%;
-
-    display: block;
-}
-
-/* =========================================================
-   INTRO BAND
-========================================================= */
-
-.intro-band {
-
-    padding: 55px 25px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #e9deef,
-            #f7f0f8
-        );
-
-    text-align: center;
-}
-
-.intro-band p {
-
-    max-width: 760px;
-
-    margin: auto;
-
-    font-family: "Playfair Display", serif;
-
-    font-size:
-        clamp(21px, 3vw, 30px);
-
-    line-height: 1.6;
-
-    color: var(--purple-dark);
-}
-
-/* =========================================================
-   SECTION TITLE
-========================================================= */
-
-.section-heading {
-
-    text-align: center;
-
-    margin-bottom: 50px;
-}
-
-.section-heading span {
-
-    display: block;
-
-    font-size: 10px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 4px;
-
-    color: var(--purple-soft);
-
-    margin-bottom: 12px;
-}
-
-.section-heading h2 {
-
-    font-family: "Playfair Display", serif;
-
-    font-size:
-        clamp(30px, 5vw, 46px);
-
-    font-weight: 500;
-
-    color: var(--purple-dark);
-}
-
-/* =========================================================
-   EVENT CARDS
-========================================================= */
-
-.event-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 20px;
-}
-
-.event-card {
-
-    padding: 32px 24px;
-
-    text-align: center;
-
-    background: white;
-
-    border:
-        1px solid rgba(99,66,124,.08);
-
-    border-radius: var(--radius);
-
-    box-shadow: var(--shadow);
-}
-
-.event-icon {
-
-    font-size: 27px;
-
-    margin-bottom: 18px;
-}
-
-.event-card h3 {
-
-    font-family: "Playfair Display", serif;
-
-    font-size: 20px;
-
-    font-weight: 600;
-
-    margin-bottom: 9px;
-
-    color: var(--purple-dark);
-}
-
-.event-card p {
-
-    font-size: 13px;
-
-    line-height: 1.7;
-
-    color: var(--muted);
-}
-
-/* =========================================================
-   CALENDAR
-========================================================= */
-
-.calendar-wrap {
-
-    max-width: 680px;
-
-    margin: auto;
-
-    background: white;
-
-    border-radius: 28px;
-
-    padding: 30px;
-
-    box-shadow: var(--shadow);
-}
-
-.calendar-header {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    margin-bottom: 25px;
-}
-
-.calendar-header h3 {
-
-    font-family: "Playfair Display", serif;
-
-    font-size: 25px;
-
-    color: var(--purple-dark);
-}
-
-.calendar-header span {
-
-    font-size: 12px;
-
-    color: var(--muted);
-}
-
-.calendar-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(7, 1fr);
-
-    gap: 7px;
-}
-
-.calendar-day {
-
-    text-align: center;
-
-    padding: 9px 3px;
-
-    font-size: 12px;
-
-    color: var(--muted);
-}
-
-.calendar-date {
-
-    position: relative;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    aspect-ratio: 1;
-
-    font-size: 13px;
-
-    border-radius: 50%;
-}
-
-.calendar-date.highlight {
-
-    background: var(--purple);
-
-    color: white;
-
-    box-shadow:
-        0 7px 18px rgba(99,66,124,.3);
-}
-
-.calendar-date.highlight::after {
-
-    content: "✦";
-
-    position: absolute;
-
-    right: -2px;
-
-    top: -4px;
-
-    font-size: 10px;
-
-    color: var(--purple-soft);
-}
-
-/* =========================================================
-   COUNTDOWN
-========================================================= */
-
-.countdown {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 12px;
-
-    max-width: 720px;
-
-    margin: 35px auto 0;
-}
-
-.count-box {
-
-    padding: 20px 10px;
-
-    border-radius: 18px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #f4edf6,
-            #ffffff
-        );
-
-    border:
-        1px solid rgba(99,66,124,.08);
-}
-
-.count-number {
-
-    display: block;
-
-    font-family: "Playfair Display", serif;
-
-    font-size: 29px;
-
-    color: var(--purple-dark);
-}
-
-.count-label {
-
-    display: block;
-
-    margin-top: 5px;
-
-    font-size: 10px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 1.5px;
-
-    color: var(--muted);
-}
-
-/* =========================================================
-   GALLERY
-========================================================= */
-
-.gallery-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 14px;
-}
-
-.gallery-item {
-
-    aspect-ratio: 1 / 1.15;
-
-    overflow: hidden;
-
-    border-radius: 18px;
-
-    cursor: pointer;
-
-    background: var(--cream-dark);
-}
-
-.gallery-item img {
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    display: block;
-
-    transition: transform .5s ease;
-}
-
-.gallery-item:hover img {
-
-    transform: scale(1.06);
-}
-
-/* =========================================================
-   LIGHTBOX
-========================================================= */
-
-.lightbox {
-
-    position: fixed;
-
-    inset: 0;
-
-    display: none;
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding: 25px;
-
-    background:
-        rgba(25,16,34,.92);
-
-    z-index: 10001;
-}
-
-.lightbox.show {
-    display: flex;
-}
-
-.lightbox img {
-
-    max-width: min(900px, 94vw);
-
-    max-height: 86vh;
-
-    object-fit: contain;
-
-    border-radius: 12px;
-
-    box-shadow:
-        0 25px 70px rgba(0,0,0,.45);
-}
-
-.lightbox-close {
-
-    position: absolute;
-
-    top: 20px;
-    right: 25px;
-
-    width: 42px;
-    height: 42px;
-
-    border: 0;
-
-    border-radius: 50%;
-
-    background: rgba(255,255,255,.12);
-
-    color: white;
-
-    font-size: 24px;
-}
-
-/* =========================================================
-   VENUE
-========================================================= */
-
-.venue-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap: 25px;
-
-    align-items: stretch;
-}
-
-.venue-card {
-
-    padding: 35px;
-
-    background: white;
-
-    border-radius: 25px;
-
-    box-shadow: var(--shadow);
-}
-
-.venue-card h3 {
-
-    font-family: "Playfair Display", serif;
-
-    font-size: 27px;
-
-    color: var(--purple-dark);
-
-    margin-bottom: 18px;
-}
-
-.venue-card p {
-
-    font-size: 14px;
-
-    line-height: 1.8;
-
-    color: var(--muted);
-
-    margin-bottom: 18px;
-}
-
-.map-button {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding: 12px 20px;
-
-    border-radius: 999px;
-
-    background: var(--purple);
-
-    color: white;
-
-    font-size: 13px;
-
-    font-weight: 600;
-
-    transition: .3s ease;
-}
-
-.map-button:hover {
-
-    transform: translateY(-2px);
-
-    background: var(--purple-dark);
-}
-
-#map {
-
-    min-height: 400px;
-
-    height: 100%;
-
-    border-radius: 25px;
-
-    overflow: hidden;
-
-    box-shadow: var(--shadow);
-}
-
-/* =========================================================
-   JOURNEY
-========================================================= */
-
-.journey {
-
-    text-align: center;
-
-    background:
-        linear-gradient(
-            135deg,
-            #f0e7f3,
-            #faf7f2
-        );
-}
-
-.journey blockquote {
-
-    max-width: 760px;
-
-    margin: auto;
-
-    font-family: "Playfair Display", serif;
-
-    font-size:
-        clamp(23px, 4vw, 34px);
-
-    line-height: 1.6;
-
-    color: var(--purple-dark);
-}
-
-.journey cite {
-
-    display: block;
-
-    margin-top: 20px;
-
-    font-family: "Great Vibes", cursive;
-
-    font-size: 31px;
-
-    color: var(--purple);
-}
-
-/* =========================================================
-   WISHES
-========================================================= */
-
-.wishes-form {
-
-    max-width: 700px;
-
-    margin: 0 auto 40px;
-
-    background: white;
-
-    padding: 30px;
-
-    border-radius: 25px;
-
-    box-shadow: var(--shadow);
-}
-
-.form-group {
-
-    margin-bottom: 18px;
-}
-
-.form-group label {
-
-    display: block;
-
-    font-size: 12px;
-
-    font-weight: 600;
-
-    margin-bottom: 7px;
-
-    color: var(--purple-dark);
-}
-
-.form-group input,
-.form-group textarea {
-
-    width: 100%;
-
-    border:
-        1px solid #e3dbe6;
-
-    border-radius: 13px;
-
-    padding: 13px 15px;
-
-    outline: none;
-
-    font-size: 13px;
-
-    color: var(--text);
-
-    background: #fcfafc;
-}
-
-.form-group textarea {
-
-    min-height: 120px;
-
-    resize: vertical;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-
-    border-color: var(--purple-soft);
-
-    box-shadow:
-        0 0 0 3px rgba(140,107,164,.08);
-}
-
-.submit-button {
-
-    width: 100%;
-
-    padding: 14px;
-
-    border: 0;
-
-    border-radius: 999px;
-
-    background: var(--purple);
-
-    color: white;
-
-    font-weight: 600;
-
-    transition: .3s ease;
-}
-
-.submit-button:hover {
-
-    background: var(--purple-dark);
-
-    transform: translateY(-1px);
-}
-
-.wishes-list {
-
-    max-width: 700px;
-
-    margin: auto;
-
-    display: grid;
-
-    gap: 15px;
-}
-
-.wish-card {
-
-    padding: 20px;
-
-    background: white;
-
-    border-radius: 18px;
-
-    box-shadow:
-        0 10px 30px rgba(49,29,66,.07);
-}
-
-.wish-name {
-
-    font-weight: 700;
-
-    color: var(--purple-dark);
-
-    margin-bottom: 6px;
-}
-
-.wish-message {
-
-    font-size: 13px;
-
-    line-height: 1.7;
-
-    color: var(--muted);
-}
-
-/* =========================================================
-   CLOSING
-========================================================= */
-
-.closing {
-
-    position: relative;
-
-    text-align: center;
-
-    padding:
-        110px 25px 90px;
-
-    background:
-        radial-gradient(
-            circle at 50% 20%,
-            rgba(186,153,208,.22),
-            transparent 35%
-        ),
-        linear-gradient(
-            145deg,
-            #332248,
-            #644278
-        );
-
-    color: white;
-
-    overflow: hidden;
-}
-
-.closing::before {
-
-    content: "☾  ✦   ✧    ✦";
-
-    position: absolute;
-
-    top: 35px;
-
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    white-space: nowrap;
-
-    letter-spacing: 16px;
-
-    font-size: 14px;
-
-    opacity: .4;
-}
-
-.closing-small {
-
-    font-size: 10px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 4px;
-
-    opacity: .7;
-
-    margin-bottom: 18px;
-}
-
-.closing h2 {
-
-    font-family: "Great Vibes", cursive;
-
-    font-size:
-        clamp(55px, 10vw, 85px);
-
-    font-weight: 400;
-
-    margin-bottom: 15px;
-}
-
-.closing p {
-
-    max-width: 570px;
-
-    margin: 0 auto 30px;
-
-    line-height: 1.8;
-
-    font-size: 14px;
-
-    opacity: .82;
-}
-
-.closing-buttons {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    justify-content: center;
-
-    gap: 10px;
-}
-
-.closing-button {
-
-    padding: 12px 19px;
-
-    border-radius: 999px;
+        rgba(255,255,255,.075);
 
     border:
         1px solid rgba(255,255,255,.25);
 
-    background:
-        rgba(255,255,255,.08);
+    border-radius:30px;
 
-    color: white;
-
-    font-size: 12px;
-
-    transition: .3s ease;
-}
-
-.closing-button:hover {
-
-    background:
-        rgba(255,255,255,.16);
-
-    transform: translateY(-2px);
-}
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer {
-
-    padding: 28px 20px;
-
-    text-align: center;
-
-    background: #291b38;
-
-    color: rgba(255,255,255,.55);
-
-    font-size: 11px;
-
-    line-height: 1.7;
-}
-
-footer strong {
-
-    color: rgba(255,255,255,.8);
-}
-
-/* =========================================================
-   MUSIC BUTTON
-========================================================= */
-
-.music-toggle {
-
-    position: fixed;
-
-    right: 18px;
-    bottom: 18px;
-
-    width: 46px;
-    height: 46px;
-
-    border: 1px solid rgba(255,255,255,.25);
-
-    border-radius: 50%;
-
-    background:
-        rgba(54,34,69,.86);
-
-    color: white;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    font-size: 18px;
-
-    z-index: 9000;
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
 
     box-shadow:
-        0 10px 25px rgba(0,0,0,.16);
+        0 30px 80px rgba(0,0,0,.18);
 
-    backdrop-filter: blur(10px);
+    z-index:2;
+
+    color:#fff;
 }
 
-/* =========================================================
-   RESPONSIVE TABLET
-========================================================= */
+.opening-small{
+    font-size:11px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    opacity:.75;
+    margin-bottom:13px;
+}
 
-@media (max-width: 850px) {
+.opening-script{
+    font-family:"Great Vibes",cursive;
+    font-size:48px;
+    line-height:1;
+    margin-bottom:14px;
+}
 
-    .event-grid {
+.opening-title{
+    font-family:"Playfair Display",serif;
+    font-size:31px;
+    font-weight:600;
+    line-height:1.25;
+    margin-bottom:10px;
+}
 
-        grid-template-columns:
-            1fr;
+.opening-degree{
+    font-size:13px;
+    letter-spacing:.5px;
+    opacity:.82;
+    margin-bottom:30px;
+}
+
+.guest-label{
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    opacity:.7;
+    margin-bottom:7px;
+}
+
+.guest-name{
+    font-family:"Playfair Display",serif;
+    font-size:22px;
+    margin-bottom:28px;
+}
+
+.open-button{
+    border:none;
+    cursor:pointer;
+
+    padding:13px 27px;
+
+    border-radius:999px;
+
+    background:#fff;
+    color:var(--purple-dark);
+
+    font-size:13px;
+    font-weight:700;
+
+    letter-spacing:.4px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.14);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.open-button:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.20);
+}
+
+/* =========================
+   MAIN
+========================= */
+
+main{
+    position:relative;
+    overflow:hidden;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+
+    padding:
+        100px
+        7vw
+        80px;
+
+    position:relative;
+}
+
+.hero-content{
+    width:100%;
+    max-width:1180px;
+
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:
+        1.05fr
+        .95fr;
+
+    gap:70px;
+
+    align-items:center;
+}
+
+.hero-eyebrow{
+    font-size:11px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+
+    color:var(--purple);
+
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-family:"Playfair Display",serif;
+
+    font-size:
+        clamp(
+            45px,
+            6vw,
+            82px
+        );
+
+    font-weight:500;
+
+    line-height:1.04;
+
+    color:var(--purple-dark);
+
+    margin-bottom:5px;
+}
+
+.hero-script{
+    font-family:"Great Vibes",cursive;
+
+    color:var(--purple);
+
+    font-size:
+        clamp(
+            38px,
+            5vw,
+            62px
+        );
+
+    margin-bottom:25px;
+}
+
+.hero p{
+    max-width:590px;
+
+    font-size:15px;
+    line-height:1.9;
+
+    color:var(--muted);
+
+    margin-bottom:25px;
+}
+
+.signature{
+    font-family:"Great Vibes",cursive;
+    color:var(--purple);
+    font-size:34px;
+}
+
+.hero-photo-wrap{
+    position:relative;
+
+    display:flex;
+    justify-content:center;
+}
+
+.hero-photo{
+    width:min(420px,90%);
+
+    aspect-ratio:4/5;
+
+    object-fit:cover;
+
+    border-radius:
+        220px
+        220px
+        25px
+        25px;
+
+    box-shadow:
+        0 30px 70px rgba(74,58,99,.20);
+
+    border:
+        8px solid rgba(255,255,255,.75);
+}
+
+.photo-stamp{
+    position:absolute;
+
+    right:2%;
+    bottom:5%;
+
+    width:110px;
+    height:110px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.85);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:15px;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:12px;
+
+    color:var(--purple-dark);
+
+    box-shadow:
+        0 15px 35px rgba(74,58,99,.15);
+
+    transform:rotate(9deg);
+}
+
+.photo-note{
+    position:absolute;
+
+    left:1%;
+    bottom:13%;
+
+    padding:12px 18px;
+
+    background:#fff;
+
+    border-radius:8px;
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:22px;
+
+    color:var(--purple-dark);
+
+    box-shadow:
+        0 12px 30px rgba(74,58,99,.12);
+
+    transform:rotate(-6deg);
+}
+
+/* =========================
+   INTRO BAND
+========================= */
+
+.intro-band{
+    padding:
+        95px
+        7vw;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eee6f5,
+            #faf7fc
+        );
+
+    border-top:
+        1px solid var(--line);
+
+    border-bottom:
+        1px solid var(--line);
+}
+
+.section-label{
+    font-size:11px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+
+    color:var(--purple);
+
+    margin-bottom:14px;
+}
+
+.intro-band h2{
+    font-family:"Playfair Display",serif;
+
+    font-size:
+        clamp(
+            32px,
+            4vw,
+            52px
+        );
+
+    font-weight:500;
+
+    color:var(--purple-dark);
+
+    margin-bottom:5px;
+}
+
+.intro-script{
+    font-family:"Great Vibes",cursive;
+
+    font-size:39px;
+
+    color:var(--purple);
+
+    margin-bottom:24px;
+}
+
+.intro-band blockquote{
+    max-width:700px;
+
+    margin:0 auto 20px;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    color:var(--text);
+}
+
+.intro-band p{
+    max-width:680px;
+
+    margin:auto;
+
+    color:var(--muted);
+
+    font-size:14px;
+
+    line-height:1.8;
+}
+
+/* =========================
+   EVENT
+========================= */
+
+.event-section{
+    padding:
+        100px
+        7vw;
+}
+
+.event-inner{
+    max-width:1180px;
+    margin:auto;
+}
+
+.section-heading{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-heading h2{
+    font-family:"Playfair Display",serif;
+
+    font-size:
+        clamp(
+            32px,
+            4vw,
+            48px
+        );
+
+    font-weight:500;
+
+    color:var(--purple-dark);
+}
+
+.event-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:18px;
+}
+
+.event-card{
+    padding:30px 22px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius:22px;
+
+    background:
+        rgba(255,255,255,.72);
+
+    box-shadow:
+        0 15px 40px rgba(93,76,112,.07);
+}
+
+.event-number{
+    font-family:"Playfair Display",serif;
+
+    font-size:13px;
+
+    color:var(--violet);
+
+    margin-bottom:20px;
+}
+
+.event-card h3{
+    font-family:"Playfair Display",serif;
+
+    font-size:20px;
+
+    margin-bottom:11px;
+
+    color:var(--purple-dark);
+}
+
+.event-card p{
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+/* =========================
+   CALENDAR
+========================= */
+
+.calendar-section{
+    padding:
+        90px
+        7vw;
+}
+
+.calendar-wrap{
+    max-width:780px;
+
+    margin:auto;
+
+    padding:35px;
+
+    background:#fff;
+
+    border-radius:28px;
+
+    box-shadow:var(--shadow);
+
+    border:1px solid var(--line);
+}
+
+.calendar-header{
+    text-align:center;
+
+    margin-bottom:25px;
+}
+
+.calendar-header h3{
+    font-family:"Playfair Display",serif;
+
+    font-size:30px;
+
+    color:var(--purple-dark);
+}
+
+.calendar-header p{
+    color:var(--muted);
+
+    font-size:13px;
+
+    margin-top:5px;
+}
+
+.calendar-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(7,1fr);
+
+    gap:7px;
+}
+
+.calendar-day-name{
+    text-align:center;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    color:var(--muted);
+
+    padding:8px 0;
+}
+
+.calendar-day{
+    aspect-ratio:1;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    font-size:13px;
+
+    color:var(--text);
+}
+
+.calendar-day.active{
+    background:var(--purple);
+
+    color:#fff;
+
+    font-weight:700;
+
+    box-shadow:
+        0 7px 20px rgba(138,114,168,.28);
+}
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown-section{
+    padding:
+        90px
+        7vw;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5b4a73,
+            #80699b
+        );
+
+    color:#fff;
+}
+
+.countdown-section .section-label{
+    color:rgba(255,255,255,.72);
+}
+
+.countdown-section h2{
+    font-family:"Playfair Display",serif;
+
+    font-size:
+        clamp(
+            32px,
+            4vw,
+            48px
+        );
+
+    font-weight:500;
+
+    margin-bottom:35px;
+}
+
+.countdown{
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+}
+
+.count-box{
+    min-width:105px;
+
+    padding:18px 14px;
+
+    border:
+        1px solid rgba(255,255,255,.22);
+
+    border-radius:18px;
+
+    background:
+        rgba(255,255,255,.10);
+
+    backdrop-filter:blur(10px);
+}
+
+.count-number{
+    display:block;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:35px;
+
+    line-height:1;
+
+    margin-bottom:7px;
+}
+
+.count-label{
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    opacity:.72;
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery-section{
+    padding:
+        100px
+        0;
+}
+
+.gallery-heading{
+    text-align:center;
+
+    padding:
+        0 7vw;
+
+    margin-bottom:45px;
+}
+
+.gallery-heading h2{
+    font-family:"Playfair Display",serif;
+
+    font-size:
+        clamp(
+            32px,
+            4vw,
+            50px
+        );
+
+    font-weight:500;
+
+    color:var(--purple-dark);
+}
+
+.gallery-row{
+    display:flex;
+
+    gap:15px;
+
+    overflow:hidden;
+
+    margin-bottom:15px;
+}
+
+.gallery-track{
+    display:flex;
+
+    gap:15px;
+
+    width:max-content;
+
+    animation:galleryMove 38s linear infinite;
+}
+
+.gallery-row:nth-child(3) .gallery-track{
+    animation-direction:reverse;
+    animation-duration:42s;
+}
+
+.gallery-row:nth-child(4) .gallery-track{
+    animation-duration:46s;
+}
+
+.gallery-item{
+    width:210px;
+    height:270px;
+
+    flex:none;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 10px 30px rgba(74,58,99,.10);
+}
+
+.gallery-item img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:
+        transform .5s ease;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.06);
+}
+
+@keyframes galleryMove{
+    from{
+        transform:translateX(0);
     }
 
-    .venue-grid {
+    to{
+        transform:translateX(-50%);
+    }
+}
 
-        grid-template-columns:
-            1fr;
+/* =========================
+   VENUE
+========================= */
+
+.venue-section{
+    padding:
+        100px
+        7vw;
+}
+
+.venue-inner{
+    max-width:1180px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        .9fr
+        1.1fr;
+
+    gap:35px;
+
+    align-items:stretch;
+}
+
+.venue-info{
+    padding:38px;
+
+    border-radius:28px;
+
+    background:#fff;
+
+    border:1px solid var(--line);
+
+    box-shadow:var(--shadow);
+}
+
+.venue-info h2{
+    font-family:"Playfair Display",serif;
+
+    font-size:38px;
+
+    font-weight:500;
+
+    color:var(--purple-dark);
+
+    margin-bottom:25px;
+}
+
+.venue-detail{
+    display:flex;
+
+    gap:15px;
+
+    margin-bottom:22px;
+}
+
+.venue-icon{
+    width:42px;
+    height:42px;
+
+    flex:none;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:var(--lavender-soft);
+
+    color:var(--purple);
+}
+
+.venue-detail strong{
+    display:block;
+
+    font-size:13px;
+
+    margin-bottom:4px;
+
+    color:var(--purple-dark);
+}
+
+.venue-detail span{
+    font-size:13px;
+
+    line-height:1.7;
+
+    color:var(--muted);
+}
+
+.map-link{
+    display:inline-block;
+
+    margin-top:8px;
+
+    padding:11px 18px;
+
+    border-radius:999px;
+
+    background:var(--purple);
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:12px;
+
+    font-weight:600;
+}
+
+#map{
+    width:100%;
+    min-height:440px;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+    border:1px solid var(--line);
+}
+
+/* =========================
+   JOURNEY
+========================= */
+
+.journey-section{
+    padding:
+        100px
+        7vw;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f0eaf6,
+            #fbf9fd
+        );
+}
+
+.journey-section blockquote{
+    max-width:850px;
+
+    margin:auto;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:
+        clamp(
+            23px,
+            3vw,
+            37px
+        );
+
+    line-height:1.6;
+
+    color:var(--purple-dark);
+}
+
+.journey-script{
+    font-family:"Great Vibes",cursive;
+
+    font-size:40px;
+
+    color:var(--purple);
+
+    margin-top:20px;
+}
+
+/* =========================
+   WISHES
+========================= */
+
+.wishes-section{
+    padding:
+        100px
+        7vw;
+}
+
+.wishes-inner{
+    max-width:900px;
+
+    margin:auto;
+}
+
+.wishes-heading{
+    text-align:center;
+
+    margin-bottom:40px;
+}
+
+.wishes-heading h2{
+    font-family:"Playfair Display",serif;
+
+    font-size:42px;
+
+    font-weight:500;
+
+    color:var(--purple-dark);
+}
+
+.wishes-heading p{
+    color:var(--muted);
+
+    font-size:13px;
+
+    margin-top:7px;
+}
+
+.wishes-form{
+    display:grid;
+
+    gap:14px;
+
+    padding:28px;
+
+    background:#fff;
+
+    border:1px solid var(--line);
+
+    border-radius:25px;
+
+    box-shadow:var(--shadow);
+
+    margin-bottom:35px;
+}
+
+.wishes-form input,
+.wishes-form textarea{
+    width:100%;
+
+    border:
+        1px solid var(--line);
+
+    border-radius:14px;
+
+    padding:13px 15px;
+
+    outline:none;
+
+    background:#fcfbfd;
+
+    color:var(--text);
+}
+
+.wishes-form textarea{
+    min-height:120px;
+
+    resize:vertical;
+}
+
+.wishes-form button{
+    border:none;
+
+    border-radius:999px;
+
+    padding:13px;
+
+    background:var(--purple);
+
+    color:#fff;
+
+    font-weight:700;
+
+    cursor:pointer;
+}
+
+.wishes-list{
+    display:grid;
+
+    gap:15px;
+}
+
+.wish-card{
+    padding:22px;
+
+    border-radius:20px;
+
+    background:#fff;
+
+    border:1px solid var(--line);
+
+    box-shadow:
+        0 10px 30px rgba(93,76,112,.06);
+}
+
+.wish-card strong{
+    display:block;
+
+    color:var(--purple-dark);
+
+    margin-bottom:7px;
+}
+
+.wish-card p{
+    color:var(--muted);
+
+    line-height:1.75;
+
+    font-size:13px;
+}
+
+/* =========================
+   CLOSING
+========================= */
+
+.closing{
+    position:relative;
+
+    padding:
+        120px
+        7vw;
+
+    text-align:center;
+
+    color:#fff;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,255,255,.13),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(255,255,255,.10),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #4a3a63,
+            #7c6697
+        );
+
+    overflow:hidden;
+}
+
+.closing h2{
+    font-family:"Playfair Display",serif;
+
+    font-size:
+        clamp(
+            42px,
+            6vw,
+            70px
+        );
+
+    font-weight:500;
+
+    margin-bottom:5px;
+}
+
+.closing-script{
+    font-family:"Great Vibes",cursive;
+
+    font-size:47px;
+
+    margin-bottom:20px;
+}
+
+.closing p{
+    max-width:600px;
+
+    margin:0 auto 28px;
+
+    font-size:14px;
+
+    line-height:1.8;
+
+    opacity:.82;
+}
+
+.calendar-button{
+    display:inline-block;
+
+    padding:13px 22px;
+
+    border-radius:999px;
+
+    background:#fff;
+
+    color:var(--purple-dark);
+
+    text-decoration:none;
+
+    font-size:12px;
+
+    font-weight:700;
+}
+
+.until{
+    margin-top:40px;
+
+    font-size:10px;
+
+    letter-spacing:4px;
+
+    opacity:.55;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    position:relative;
+
+    padding:
+        35px
+        7vw;
+
+    text-align:center;
+
+    background:#382b4b;
+
+    color:rgba(255,255,255,.65);
+
+    font-size:11px;
+
+    letter-spacing:.4px;
+}
+
+/* =========================
+   LIGHTBOX
+========================= */
+
+.lightbox{
+    position:fixed;
+
+    inset:0;
+
+    background:
+        rgba(30,20,40,.90);
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:25px;
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:
+        opacity .3s ease;
+
+    z-index:2000;
+}
+
+.lightbox.show{
+    opacity:1;
+    visibility:visible;
+}
+
+.lightbox img{
+    max-width:min(900px,95vw);
+
+    max-height:90vh;
+
+    border-radius:15px;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.4);
+}
+
+.lightbox-close{
+    position:absolute;
+
+    right:25px;
+    top:20px;
+
+    color:#fff;
+
+    font-size:35px;
+
+    cursor:pointer;
+}
+
+/* =========================
+   MUSIC BUTTON
+========================= */
+
+.music-toggle{
+    position:fixed;
+
+    right:20px;
+    bottom:20px;
+
+    width:45px;
+    height:45px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,255,255,.25);
+
+    background:
+        rgba(74,58,99,.80);
+
+    color:#fff;
+
+    cursor:pointer;
+
+    z-index:500;
+
+    backdrop-filter:blur(8px);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+    .hero-content{
+        grid-template-columns:1fr;
+
+        gap:45px;
+
+        text-align:center;
     }
 
-    #map {
-
-        min-height: 350px;
+    .hero p{
+        margin-left:auto;
+        margin-right:auto;
     }
 
-    .gallery-grid {
+    .hero-photo-wrap{
+        order:-1;
+    }
 
+    .hero-photo{
+        width:min(330px,80%);
+    }
+
+    .event-grid{
         grid-template-columns:
-            repeat(3, 1fr);
+            repeat(2,1fr);
+    }
+
+    .venue-inner{
+        grid-template-columns:1fr;
     }
 
 }
 
-/* =========================================================
-   RESPONSIVE MOBILE
-========================================================= */
+@media(max-width:600px){
 
-@media (max-width: 600px) {
-
-    .section {
-
-        width:
-            min(100% - 28px, 1080px);
-
-        padding: 70px 0;
-    }
-
-    /* -----------------------------------------
-       MOBILE WATERMARK
-    ----------------------------------------- */
-
-    .opening::before {
-
-        width: 290px;
-        height: 290px;
-
-        opacity: .16;
-
-        filter:
-            blur(.6px)
-            brightness(1.15)
-            contrast(.9);
-
-        mix-blend-mode: screen;
-    }
-
-    .opening-card {
-
+    .opening-card{
         padding:
-            42px 22px 38px;
-
-        border-radius: 25px;
+            42px
+            24px;
     }
 
-    .opening-small {
+    /* WATERMARK MOBILE */
+    .opening::before{
+        width:320px;
+        height:320px;
 
-        font-size: 9px;
+        opacity:.50;
 
-        letter-spacing: 3px;
+        filter:blur(.5px);
+
+        mix-blend-mode:normal;
     }
 
-    .opening-title {
-
-        font-size: 23px;
+    .opening-script{
+        font-size:40px;
     }
 
-    .opening-name {
-
-        font-size: 45px;
+    .opening-title{
+        font-size:25px;
     }
 
-    .opening-degree {
-
-        font-size: 16px;
+    .guest-name{
+        font-size:19px;
     }
 
-    .hero {
-
-        min-height: 90vh;
-    }
-
-    .hero-photo {
-
-        width: 155px;
-        height: 155px;
-    }
-
-    .calendar-wrap {
-
-        padding: 20px 15px;
-    }
-
-    .calendar-grid {
-
-        gap: 4px;
-    }
-
-    .calendar-date {
-
-        font-size: 11px;
-    }
-
-    .countdown {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-    .gallery-grid {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-
-        gap: 10px;
-    }
-
-    .venue-card {
-
-        padding: 25px 20px;
-    }
-
-    #map {
-
-        min-height: 300px;
-    }
-
-    .closing {
-
+    .hero{
         padding:
-            100px 20px 75px;
+            80px
+            6vw
+            70px;
     }
 
-}
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
-@media (max-width: 380px) {
-
-    .opening {
-
-        padding: 15px;
+    .hero h1{
+        font-size:45px;
     }
 
-    .opening-card {
+    .hero-script{
+        font-size:40px;
+    }
 
+    .photo-stamp{
+        width:85px;
+        height:85px;
+
+        font-size:10px;
+    }
+
+    .photo-note{
+        font-size:18px;
+
+        left:3%;
+    }
+
+    .intro-band,
+    .event-section,
+    .calendar-section,
+    .venue-section,
+    .journey-section,
+    .wishes-section{
         padding:
-            35px 18px 32px;
+            75px
+            6vw;
     }
 
-    .opening-name {
-
-        font-size: 40px;
+    .event-grid{
+        grid-template-columns:1fr;
     }
 
-    .opening::before {
+    .calendar-wrap{
+        padding:20px 12px;
+    }
 
-        width: 260px;
-        height: 260px;
+    .calendar-grid{
+        gap:3px;
+    }
 
-        opacity: .15;
+    .calendar-day{
+        font-size:11px;
+    }
+
+    .countdown{
+        gap:8px;
+    }
+
+    .count-box{
+        min-width:75px;
+        padding:15px 8px;
+    }
+
+    .count-number{
+        font-size:27px;
+    }
+
+    .gallery-item{
+        width:160px;
+        height:210px;
+    }
+
+    .venue-info{
+        padding:27px;
+    }
+
+    #map{
+        min-height:350px;
+    }
+
+    .wishes-form{
+        padding:20px;
     }
 
 }
 
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
+/* =========================
+   SAFE AREA
+========================= */
 
-@media (prefers-reduced-motion: reduce) {
+@supports(padding:max(0px)){
 
-    *,
-    *::before,
-    *::after {
-
-        scroll-behavior: auto !important;
-
-        animation-duration: .01ms !important;
-
-        animation-iteration-count: 1 !important;
-
-        transition-duration: .01ms !important;
+    .opening{
+        padding:
+            max(20px,env(safe-area-inset-top))
+            max(20px,env(safe-area-inset-right))
+            max(20px,env(safe-area-inset-bottom))
+            max(20px,env(safe-area-inset-left));
     }
 
 }
+
+/* =========================
+   END CSS
+========================= */
 
 </style>
-
 </head>
 
-<body>
-
-<!-- =====================================================
-     PETAL LAYER
-===================================================== -->
+<body class="locked">
 
 <div id="petalLayer"></div>
 
-
-<!-- =====================================================
-     OPENING COVER
-===================================================== -->
+<!-- =========================
+     OPENING
+========================= -->
 
 <section class="opening" id="opening">
 
     <div class="opening-card">
 
         <div class="opening-small">
-            A Graduation Celebration
+            Undangan Wisuda
         </div>
 
-        <h1 class="opening-title">
-            You Are Invited
-        </h1>
+        <div class="opening-script">
+            Graduation Day
+        </div>
 
-        <div class="opening-name">
-            Cindy Arwinda Putri
+        <div class="opening-title">
+            Cindy Arwinda Putri, S.Kom
         </div>
 
         <div class="opening-degree">
-            S.Kom
+            Sarjana Komputer • S1 Sistem Informasi
         </div>
 
-        <div class="opening-divider"></div>
-
-        <div class="opening-guest">
+        <div class="guest-label">
             Kepada Yth.
-            <strong id="guestName">
-                Tamu Undangan
-            </strong>
+        </div>
+
+        <div class="guest-name" id="guestName">
+            Bapak/Ibu/Saudara/i
         </div>
 
         <button
             class="open-button"
-            id="openInvitation"
-            type="button"
+            onclick="openInvitation()"
         >
-            ✦ Buka Undangan ✦
+            Buka Undangan
         </button>
 
     </div>
 
 </section>
 
-
-<!-- =====================================================
-     AUDIO
-===================================================== -->
-
-<audio
-    id="backgroundMusic"
-    loop
-    preload="auto"
->
-    <source
-        src="./audio.mp3"
-        type="audio/mpeg"
-    >
-</audio>
-
-
-<!-- =====================================================
+<!-- =========================
      MAIN
-===================================================== -->
+========================= -->
 
 <main>
 
-<!-- =====================================================
-     HERO
-===================================================== -->
+    <!-- HERO -->
 
-<section class="hero">
+    <section class="hero">
 
-    <div class="hero-inner">
+        <div class="hero-content">
 
-        <div class="hero-kicker">
-            Friday · 18 September 2026
+            <div>
+
+                <div class="hero-eyebrow">
+                    A Special Milestone
+                </div>
+
+                <h1>
+                    Today is a<br>
+                    chapter completed.
+                </h1>
+
+                <div class="hero-script">
+                    And a new one begins.
+                </div>
+
+                <p>
+                    Setelah melewati banyak cerita, proses,
+                    tantangan, dan perjalanan panjang,
+                    akhirnya satu tahap berhasil diselesaikan.
+                    Hari ini menjadi salah satu momen yang
+                    akan selalu dikenang.
+                </p>
+
+                <div class="signature">
+                    Cindy
+                </div>
+
+            </div>
+
+            <div class="hero-photo-wrap">
+
+                <img
+                    src="foto-cindy.jpg"
+                    alt="Cindy Arwinda Putri"
+                    class="hero-photo"
+                >
+
+                <div class="photo-note">
+                    finally, I made it
+                </div>
+
+                <div class="photo-stamp">
+                    CLASS<br>
+                    OF<br>
+                    2026
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="hero-script">
-            A New Beginning
+    </section>
+
+
+    <!-- INTRO -->
+
+    <section class="intro-band">
+
+        <div class="section-label">
+            A Day To Celebrate
         </div>
 
-        <h1>
-            Today is a chapter completed.<br>
-            And a new one begins.
-        </h1>
+        <h2>
+            A little moment,
+        </h2>
 
-        <p class="hero-description">
+        <div class="intro-script">
+            a beautiful memory.
+        </div>
 
-            Dengan penuh rasa syukur dan bahagia,
-            saya mengundang Anda untuk hadir dan
-            menjadi bagian dari momen spesial
-            perjalanan kelulusan saya.
+        <blockquote>
+            “Every ending is simply the beginning
+            of something new.”
+        </blockquote>
 
+        <p>
+            Terima kasih untuk setiap doa, dukungan,
+            dan kehadiran yang membuat perjalanan ini
+            terasa lebih berarti.
         </p>
 
-        <div class="hero-photo">
-
-            <img
-                src="./foto-cindy.jpg"
-                alt="Cindy Arwinda Putri"
-            >
-
-        </div>
-
-    </div>
-
-</section>
+    </section>
 
 
-<!-- =====================================================
-     INTRO
-===================================================== -->
+    <!-- EVENT -->
 
-<section class="intro-band">
+    <section class="event-section">
 
-    <p>
+        <div class="event-inner">
 
-        Satu perjalanan telah selesai,
-        membawa banyak cerita, proses,
-        dan kenangan yang akan selalu menjadi
-        bagian dari perjalanan berikutnya.
+            <div class="section-heading">
 
-    </p>
+                <div class="section-label">
+                    The Story
+                </div>
 
-</section>
+                <h2>
+                    A Moment Worth Remembering
+                </h2>
 
-
-<!-- =====================================================
-     EVENT
-===================================================== -->
-
-<section class="section">
-
-    <div class="section-heading">
-
-        <span>
-            Save The Date
-        </span>
-
-        <h2>
-            The Celebration
-        </h2>
-
-    </div>
-
-
-    <div class="event-grid">
-
-        <div class="event-card">
-
-            <div class="event-icon">
-                ✦
             </div>
 
-            <h3>
-                Friday
-            </h3>
+            <div class="event-grid">
 
-            <p>
-                18 September 2026
-            </p>
+                <div class="event-card">
 
-        </div>
+                    <div class="event-number">
+                        01
+                    </div>
 
+                    <h3>
+                        A Day To Remember
+                    </h3>
 
-        <div class="event-card">
+                    <p>
+                        Sebuah hari yang menandai
+                        selesainya satu perjalanan
+                        dan dimulainya langkah baru.
+                    </p>
 
-            <div class="event-icon">
-                ♡
+                </div>
+
+                <div class="event-card">
+
+                    <div class="event-number">
+                        02
+                    </div>
+
+                    <h3>
+                        For Family & Friends
+                    </h3>
+
+                    <p>
+                        Untuk keluarga dan sahabat
+                        yang selalu hadir memberikan
+                        doa dan dukungan.
+                    </p>
+
+                </div>
+
+                <div class="event-card">
+
+                    <div class="event-number">
+                        03
+                    </div>
+
+                    <h3>
+                        The Occasion
+                    </h3>
+
+                    <p>
+                        Perayaan kelulusan sebagai
+                        Sarjana Komputer dari Program
+                        Studi Sistem Informasi.
+                    </p>
+
+                </div>
+
+                <div class="event-card">
+
+                    <div class="event-number">
+                        04
+                    </div>
+
+                    <h3>
+                        A New Beginning
+                    </h3>
+
+                    <p>
+                        Setelah satu bab selesai,
+                        saatnya membuka halaman baru
+                        dengan cerita yang berbeda.
+                    </p>
+
+                </div>
+
             </div>
 
-            <h3>
-                Time
-            </h3>
-
-            <p>
-                13.00 – 15.00 WIB
-            </p>
-
         </div>
 
+    </section>
 
-        <div class="event-card">
 
-            <div class="event-icon">
-                ☾
+    <!-- CALENDAR -->
+
+    <section class="calendar-section">
+
+        <div class="calendar-wrap">
+
+            <div class="calendar-header">
+
+                <h3>
+                    September 2026
+                </h3>
+
+                <p>
+                    Save the date
+                </p>
+
             </div>
 
-            <h3>
-                Location
-            </h3>
-
-            <p>
-                Fakultas Teknologi Informasi<br>
-                Universitas Andalas
-            </p>
+            <div
+                class="calendar-grid"
+                id="calendar"
+            ></div>
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- =====================================================
-     CALENDAR
-===================================================== -->
+    <!-- COUNTDOWN -->
 
-<section class="section">
+    <section class="countdown-section">
 
-    <div class="section-heading">
-
-        <span>
-            Mark The Date
-        </span>
+        <div class="section-label">
+            Counting Down
+        </div>
 
         <h2>
-            September 2026
+            Until the special day
         </h2>
 
-    </div>
+        <div class="countdown">
 
+            <div class="count-box">
 
-    <div class="calendar-wrap">
+                <span
+                    class="count-number"
+                    id="days"
+                >
+                    00
+                </span>
 
-        <div class="calendar-header">
+                <span class="count-label">
+                    Days
+                </span>
 
-            <h3>
-                September
-            </h3>
+            </div>
 
-            <span>
-                Graduation Day
-            </span>
+            <div class="count-box">
 
-        </div>
+                <span
+                    class="count-number"
+                    id="hours"
+                >
+                    00
+                </span>
 
-        <div
-            class="calendar-grid"
-            id="calendar"
-        ></div>
+                <span class="count-label">
+                    Hours
+                </span>
 
-    </div>
+            </div>
 
+            <div class="count-box">
 
-    <div
-        class="countdown"
-        id="countdown"
-    >
+                <span
+                    class="count-number"
+                    id="minutes"
+                >
+                    00
+                </span>
 
-        <div class="count-box">
+                <span class="count-label">
+                    Minutes
+                </span>
 
-            <span
-                class="count-number"
-                id="days"
-            >
-                00
-            </span>
+            </div>
 
-            <span class="count-label">
-                Days
-            </span>
+            <div class="count-box">
 
-        </div>
+                <span
+                    class="count-number"
+                    id="seconds"
+                >
+                    00
+                </span>
 
+                <span class="count-label">
+                    Seconds
+                </span>
 
-        <div class="count-box">
-
-            <span
-                class="count-number"
-                id="hours"
-            >
-                00
-            </span>
-
-            <span class="count-label">
-                Hours
-            </span>
-
-        </div>
-
-
-        <div class="count-box">
-
-            <span
-                class="count-number"
-                id="minutes"
-            >
-                00
-            </span>
-
-            <span class="count-label">
-                Minutes
-            </span>
+            </div>
 
         </div>
 
-
-        <div class="count-box">
-
-            <span
-                class="count-number"
-                id="seconds"
-            >
-                00
-            </span>
-
-            <span class="count-label">
-                Seconds
-            </span>
-
-        </div>
-
-    </div>
-
-</section>
+    </section>
 
 
-<!-- =====================================================
-     GALLERY
-===================================================== -->
+    <!-- GALLERY -->
 
-<section class="section">
+    <section class="gallery-section">
 
-    <div class="section-heading">
+        <div class="gallery-heading">
 
-        <span>
-            Little Memories
-        </span>
+            <div class="section-label">
+                Little Memories
+            </div>
 
-        <h2>
-            Gallery
-        </h2>
-
-    </div>
-
-
-    <div class="gallery-grid">
-
-        <div class="gallery-item">
-            <img src="./foto-cindy.jpg" alt="Memory 1">
-        </div>
-
-        <div class="gallery-item">
-            <img src="./foto-2.jpg" alt="Memory 2">
-        </div>
-
-        <div class="gallery-item">
-            <img src="./foto-3.jpg" alt="Memory 3">
-        </div>
-
-        <div class="gallery-item">
-            <img src="./foto-4.jpg" alt="Memory 4">
-        </div>
-
-        <div class="gallery-item">
-            <img src="./foto-5.jpg" alt="Memory 5">
-        </div>
-
-        <div class="gallery-item">
-            <img src="./foto-6.jpg" alt="Memory 6">
-        </div>
-
-        <div class="gallery-item">
-            <img src="./foto-7.jpg" alt="Memory 7">
-        </div>
-
-        <div class="gallery-item">
-            <img src="./foto-8.jpg" alt="Memory 8">
-        </div>
-
-        <div class="gallery-item">
-            <img src="./foto-9.jpg" alt="Memory 9">
-        </div>
-
-        <div class="gallery-item">
-            <img src="./foto-10.jpg" alt="Memory 10">
-        </div>
-
-        <div class="gallery-item">
-            <img src="./foto-11.jpg" alt="Memory 11">
-        </div>
-
-        <div class="gallery-item">
-            <img src="./foto-12.jpg" alt="Memory 12">
-        </div>
-
-        <div class="gallery-item">
-            <img src="./foto-13.jpg" alt="Memory 13">
-        </div>
-
-        <div class="gallery-item">
-            <img src="./foto-14.jpg" alt="Memory 14">
-        </div>
-
-        <div class="gallery-item">
-            <img src="./foto-15.jpg" alt="Memory 15">
-        </div>
-
-        <div class="gallery-item">
-            <img src="./foto-16.jpg" alt="Memory 16">
-        </div>
-
-        <div class="gallery-item">
-            <img src="./foto-17.jpg" alt="Memory 17">
-        </div>
-
-        <div class="gallery-item">
-            <img src="./foto-18.jpg" alt="Memory 18">
-        </div>
-
-        <div class="gallery-item">
-            <img src="./foto-19.jpg" alt="Memory 19">
-        </div>
-
-        <div class="gallery-item">
-            <img src="./foto-20.jpg" alt="Memory 20">
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     VENUE
-===================================================== -->
-
-<section class="section">
-
-    <div class="section-heading">
-
-        <span>
-            Where We Meet
-        </span>
-
-        <h2>
-            The Venue
-        </h2>
-
-    </div>
-
-
-    <div class="venue-grid">
-
-        <div class="venue-card">
-
-            <h3>
-                Fakultas Teknologi Informasi
-            </h3>
-
-            <p>
-
-                Universitas Andalas<br>
-                Limau Manis, Pauh<br>
-                Kota Padang, Sumatera Barat
-
-            </p>
-
-            <p>
-
-                <strong>
-                    Jumat, 18 September 2026
-                </strong><br>
-
-                13.00 – 15.00 WIB
-
-            </p>
-
-            <a
-                class="map-button"
-                href="https://www.google.com/maps/search/?api=1&query=Fakultas+Teknologi+Informasi+Universitas+Andalas"
-                target="_blank"
-                rel="noopener"
-            >
-                Buka Google Maps
-            </a>
+            <h2>
+                Moments Along The Way
+            </h2>
 
         </div>
 
 
-        <div id="map"></div>
+        <div class="gallery-row">
 
-    </div>
+            <div class="gallery-track">
 
-</section>
+                <div class="gallery-item">
+                    <img src="foto-cindy.jpg" alt="Memory">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="foto-2.jpg" alt="Memory">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="foto-3.jpg" alt="Memory">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="foto-4.jpg" alt="Memory">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="foto-5.jpg" alt="Memory">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="foto-6.jpg" alt="Memory">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="foto-7.jpg" alt="Memory">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="foto-8.jpg" alt="Memory">
+                </div>
+
+            </div>
+
+        </div>
 
 
-<!-- =====================================================
-     JOURNEY
-===================================================== -->
+        <div class="gallery-row">
 
-<section class="journey section">
+            <div class="gallery-track">
 
-    <div class="section-heading">
+                <div class="gallery-item">
+                    <img src="foto-9.jpg" alt="Memory">
+                </div>
 
-        <span>
-            A Little Note
-        </span>
+                <div class="gallery-item">
+                    <img src="foto-10.jpg" alt="Memory">
+                </div>
 
-        <h2>
+                <div class="gallery-item">
+                    <img src="foto-11.jpg" alt="Memory">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="foto-12.jpg" alt="Memory">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="foto-13.jpg" alt="Memory">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="foto-14.jpg" alt="Memory">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="foto-15.jpg" alt="Memory">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="gallery-row">
+
+            <div class="gallery-track">
+
+                <div class="gallery-item">
+                    <img src="foto-16.jpg" alt="Memory">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="foto-17.jpg" alt="Memory">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="foto-18.jpg" alt="Memory">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="foto-19.jpg" alt="Memory">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="foto-20.jpg" alt="Memory">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="foto-cindy.jpg" alt="Memory">
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- VENUE -->
+
+    <section class="venue-section">
+
+        <div class="venue-inner">
+
+            <div class="venue-info">
+
+                <div class="section-label">
+                    The Venue
+                </div>
+
+                <h2>
+                    See You There
+                </h2>
+
+                <div class="venue-detail">
+
+                    <div class="venue-icon">
+                        📍
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Location
+                        </strong>
+
+                        <span>
+                            Fakultas Teknologi Informasi,
+                            Universitas Andalas,
+                            Limau Manis, Padang
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="venue-detail">
+
+                    <div class="venue-icon">
+                        📅
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Date
+                        </strong>
+
+                        <span>
+                            Jumat, 18 September 2026
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="venue-detail">
+
+                    <div class="venue-icon">
+                        🕐
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Time
+                        </strong>
+
+                        <span>
+                            13.00 — 15.00 WIB
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="https://www.google.com/maps/search/?api=1&query=Fakultas+Teknologi+Informasi+Universitas+Andalas"
+                    target="_blank"
+                    class="map-link"
+                >
+                    Open Google Maps
+                </a>
+
+            </div>
+
+
+            <div id="map"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- JOURNEY -->
+
+    <section class="journey-section">
+
+        <div class="section-label">
             The Journey
-        </h2>
+        </div>
 
-    </div>
+        <blockquote>
+            “There were moments when it felt difficult,
+            but every step was worth taking.”
+        </blockquote>
 
+        <div class="journey-script">
+            one chapter ends,
+            another begins.
+        </div>
 
-    <blockquote>
-
-        “Tidak semua langkah harus berjalan sempurna.
-        Yang penting adalah terus berjalan,
-        belajar dari setiap proses,
-        dan sampai pada titik yang pernah kita impikan.”
-
-        <cite>
-            — Cindy
-        </cite>
-
-    </blockquote>
-
-</section>
+    </section>
 
 
-<!-- =====================================================
-     WISHES
-===================================================== -->
+    <!-- WISHES -->
 
-<section class="section">
+    <section class="wishes-section">
 
-    <div class="section-heading">
+        <div class="wishes-inner">
 
-        <span>
-            Leave A Little Note
-        </span>
+            <div class="wishes-heading">
 
-        <h2>
-            Wishes
-        </h2>
+                <div class="section-label">
+                    Leave A Little Note
+                </div>
 
-    </div>
+                <h2>
+                    Your Wishes
+                </h2>
+
+                <p>
+                    Leave a little love,
+                    like a polaroid memory.
+                </p>
+
+            </div>
 
 
-    <div class="wishes-form">
-
-        <form id="wishForm">
-
-            <div class="form-group">
-
-                <label for="wishName">
-                    Nama
-                </label>
+            <form
+                class="wishes-form"
+                id="wishForm"
+            >
 
                 <input
-                    id="wishName"
                     type="text"
-                    placeholder="Tulis nama kamu"
+                    id="wishName"
+                    placeholder="Nama"
                     required
                 >
 
-            </div>
-
-
-            <div class="form-group">
-
-                <label for="wishMessage">
-                    Ucapan
-                </label>
-
                 <textarea
                     id="wishMessage"
-                    placeholder="Tulis ucapan dan doa..."
+                    placeholder="Tulis ucapan..."
                     required
                 ></textarea>
 
+                <button type="submit">
+                    Kirim Ucapan
+                </button>
+
+            </form>
+
+
+            <div
+                class="wishes-list"
+                id="wishesList"
+            >
+
+                <div class="wish-card">
+
+                    <strong>
+                        Keluarga
+                    </strong>
+
+                    <p>
+                        Selamat atas kelulusannya.
+                        Semoga ilmu yang diperoleh
+                        menjadi bekal untuk langkah
+                        berikutnya.
+                    </p>
+
+                </div>
+
+
+                <div class="wish-card">
+
+                    <strong>
+                        Sahabat
+                    </strong>
+
+                    <p>
+                        Congratulations!
+                        Semoga setelah ini semakin
+                        banyak hal baik yang datang.
+                    </p>
+
+                </div>
+
             </div>
 
+        </div>
 
-            <button
-                type="submit"
-                class="submit-button"
-            >
-                Kirim Ucapan
-            </button>
-
-        </form>
-
-    </div>
+    </section>
 
 
-    <div
-        class="wishes-list"
-        id="wishesList"
-    ></div>
+    <!-- CLOSING -->
 
-</section>
+    <section class="closing">
 
+        <div class="section-label">
+            Until We Meet Again
+        </div>
 
-<!-- =====================================================
-     CLOSING
-===================================================== -->
+        <h2>
+            See You There
+        </h2>
 
-<section class="closing">
+        <div class="closing-script">
+            Let's celebrate together.
+        </div>
 
-    <div class="closing-small">
-        Until We Meet Again
-    </div>
-
-    <h2>
-        See You There
-    </h2>
-
-    <p>
-
-        Kehadiran dan doa baik dari Anda
-        akan menjadi bagian indah
-        dari hari yang istimewa ini.
-
-    </p>
-
-
-    <div class="closing-buttons">
+        <p>
+            Kehadiran dan doa dari keluarga,
+            sahabat, dan orang-orang terkasih
+            akan menjadi bagian dari momen
+            istimewa ini.
+        </p>
 
         <a
-            href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wisuda%20Cindy%20Arwinda%20Putri&dates=20260918T060000Z/20260918T080000Z&details=Undangan%20Wisuda%20Cindy%20Arwinda%20Putri%2C%20S.Kom&location=Fakultas%20Teknologi%20Informasi%20Universitas%20Andalas"
+            href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wisuda+Cindy+Arwinda+Putri&dates=20260918T130000/20260918T150000&details=Undangan+Wisuda+Cindy+Arwinda+Putri&location=Fakultas+Teknologi+Informasi+Universitas+Andalas"
             target="_blank"
-            rel="noopener"
-            class="closing-button"
+            class="calendar-button"
         >
-            ♡ Add to Google Calendar
+            Add to Google Calendar
         </a>
 
+        <div class="until">
+            UNTIL WE MEET AGAIN
+        </div>
 
-        <button
-            class="closing-button"
-            id="downloadICS"
-            type="button"
-        >
-            ✦ Save to Calendar
-        </button>
-
-    </div>
-
-</section>
+    </section>
 
 </main>
 
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+<!-- FOOTER -->
 
 <footer>
 
-    <div>
-        Made with love for
-        <strong>Cindy Arwinda Putri, S.Kom</strong>
-    </div>
-
-    <div>
-        Graduation Day · 18 September 2026
-    </div>
+    With love,
+    Cindy Arwinda Putri • 2026
 
 </footer>
 
 
-<!-- =====================================================
-     LIGHTBOX
-===================================================== -->
+<!-- LIGHTBOX -->
 
 <div
     class="lightbox"
     id="lightbox"
 >
 
-    <button
+    <div
         class="lightbox-close"
-        id="lightboxClose"
-        type="button"
-        aria-label="Close"
+        onclick="closeLightbox()"
     >
         ×
-    </button>
+    </div>
 
     <img
         id="lightboxImage"
         src=""
-        alt="Gallery preview"
+        alt="Preview"
     >
 
 </div>
 
 
-<!-- =====================================================
-     MUSIC BUTTON
-===================================================== -->
+<!-- MUSIC -->
+
+<audio
+    id="audio"
+    src="audio.mp3"
+    loop
+></audio>
 
 <button
     class="music-toggle"
     id="musicToggle"
-    type="button"
-    aria-label="Toggle music"
+    onclick="toggleMusic()"
 >
-    ♫
+    ♪
 </button>
 
 
-<!-- =====================================================
-     LEAFLET
-===================================================== -->
-
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
 
 <script>
 
-/* =========================================================
+/* =========================
    GUEST NAME
-========================================================= */
+========================= */
 
 const params =
-    new URLSearchParams(window.location.search);
+    new URLSearchParams(
+        window.location.search
+    );
 
 const guest =
     params.get("to");
 
-if (guest) {
+if(guest){
 
-    document.getElementById("guestName").textContent =
-        decodeURIComponent(guest.replace(/\+/g, " "));
+    document.getElementById(
+        "guestName"
+    ).textContent =
+        decodeURIComponent(
+            guest.replace(/\+/g," ")
+        );
 
 }
 
 
-/* =========================================================
+/* =========================
    OPEN INVITATION
-========================================================= */
+========================= */
 
-const opening =
-    document.getElementById("opening");
+function openInvitation(){
 
-const openInvitation =
-    document.getElementById("openInvitation");
+    const opening =
+        document.getElementById(
+            "opening"
+        );
 
-const backgroundMusic =
-    document.getElementById("backgroundMusic");
+    opening.classList.add("hide");
 
-openInvitation.addEventListener(
-    "click",
-    function () {
+    document.body.classList.remove(
+        "locked"
+    );
 
-        opening.classList.add("hide");
+    const audio =
+        document.getElementById(
+            "audio"
+        );
 
-        backgroundMusic.volume = 0.35;
+    audio.volume=.35;
 
-        backgroundMusic
-            .play()
-            .catch(() => {});
+    audio.play().catch(()=>{});
 
-    }
-);
-
-
-/* =========================================================
-   MUSIC TOGGLE
-========================================================= */
-
-const musicToggle =
-    document.getElementById("musicToggle");
-
-let musicPlaying = false;
-
-musicToggle.addEventListener(
-    "click",
-    function () {
-
-        if (musicPlaying) {
-
-            backgroundMusic.pause();
-
-            musicPlaying = false;
-
-            musicToggle.textContent = "♫";
-
-        } else {
-
-            backgroundMusic
-                .play()
-                .catch(() => {});
-
-            musicPlaying = true;
-
-            musicToggle.textContent = "❚❚";
-
-        }
-
-    }
-);
-
-backgroundMusic.addEventListener(
-    "play",
-    function () {
-
-        musicPlaying = true;
-
-        musicToggle.textContent = "❚❚";
-
-    }
-);
-
-backgroundMusic.addEventListener(
-    "pause",
-    function () {
-
-        musicPlaying = false;
-
-        musicToggle.textContent = "♫";
-
-    }
-);
+}
 
 
-/* =========================================================
+/* =========================
    PETALS
-========================================================= */
+========================= */
 
-const petalLayer =
-    document.getElementById("petalLayer");
-
-function createPetal() {
+function createPetal(){
 
     const petal =
         document.createElement("div");
 
-    petal.className = "petal";
+    petal.className="petal";
 
     petal.style.left =
-        Math.random() * 100 + "%";
+        Math.random()*100+"vw";
 
     petal.style.animationDuration =
-        (7 + Math.random() * 7) + "s";
+        (7+Math.random()*8)+"s";
 
     petal.style.animationDelay =
-        Math.random() * 3 + "s";
+        Math.random()*3+"s";
 
-    petal.style.opacity =
-        .25 + Math.random() * .45;
+    petal.style.transform =
+        `rotate(${Math.random()*360}deg)`;
 
-    const size =
-        4 + Math.random() * 7;
-
-    petal.style.width =
-        size + "px";
-
-    petal.style.height =
-        size * 1.45 + "px";
-
-    petalLayer.appendChild(petal);
+    document
+        .getElementById("petalLayer")
+        .appendChild(petal);
 
     setTimeout(
-        () => petal.remove(),
-        16000
-    );
-
-}
-
-for (
-    let i = 0;
-    i < 18;
-    i++
-) {
-
-    setTimeout(
-        createPetal,
-        i * 450
+        ()=>petal.remove(),
+        17000
     );
 
 }
 
 setInterval(
     createPetal,
-    900
+    850
 );
 
 
-/* =========================================================
+/* =========================
+   SPARKLES
+========================= */
+
+function createSparkle(){
+
+    const sparkle =
+        document.createElement("div");
+
+    sparkle.className="sparkle";
+
+    sparkle.style.left =
+        Math.random()*100+"%";
+
+    sparkle.style.top =
+        Math.random()*100+"%";
+
+    sparkle.style.animationDelay =
+        Math.random()*3+"s";
+
+    document
+        .getElementById("petalLayer")
+        .appendChild(sparkle);
+
+}
+
+for(
+    let i=0;
+    i<22;
+    i++
+){
+    createSparkle();
+}
+
+
+/* =========================
    COUNTDOWN
-========================================================= */
+========================= */
 
 const targetDate =
     new Date(
         "2026-09-18T13:00:00+07:00"
     ).getTime();
 
-function updateCountdown() {
+function updateCountdown(){
 
     const now =
         new Date().getTime();
 
-    const distance =
-        targetDate - now;
+    let distance =
+        targetDate-now;
 
-    if (distance <= 0) {
-
-        document.getElementById("days").textContent = "00";
-        document.getElementById("hours").textContent = "00";
-        document.getElementById("minutes").textContent = "00";
-        document.getElementById("seconds").textContent = "00";
-
-        return;
-
+    if(distance<0){
+        distance=0;
     }
 
     const days =
         Math.floor(
             distance /
-            (1000 * 60 * 60 * 24)
+            (1000*60*60*24)
         );
 
     const hours =
         Math.floor(
             (distance %
-                (1000 * 60 * 60 * 24)) /
-            (1000 * 60 * 60)
+            (1000*60*60*24)) /
+            (1000*60*60)
         );
 
     const minutes =
         Math.floor(
             (distance %
-                (1000 * 60 * 60)) /
-            (1000 * 60)
+            (1000*60*60)) /
+            (1000*60)
         );
 
     const seconds =
         Math.floor(
             (distance %
-                (1000 * 60)) /
+            (1000*60)) /
             1000
         );
 
-    document.getElementById("days").textContent =
-        String(days).padStart(2, "0");
+    document.getElementById(
+        "days"
+    ).textContent =
+        String(days).padStart(2,"0");
 
-    document.getElementById("hours").textContent =
-        String(hours).padStart(2, "0");
+    document.getElementById(
+        "hours"
+    ).textContent =
+        String(hours).padStart(2,"0");
 
-    document.getElementById("minutes").textContent =
-        String(minutes).padStart(2, "0");
+    document.getElementById(
+        "minutes"
+    ).textContent =
+        String(minutes).padStart(2,"0");
 
-    document.getElementById("seconds").textContent =
-        String(seconds).padStart(2, "0");
+    document.getElementById(
+        "seconds"
+    ).textContent =
+        String(seconds).padStart(2,"0");
 
 }
 
@@ -2621,222 +2702,224 @@ setInterval(
 );
 
 
-/* =========================================================
+/* =========================
    CALENDAR
-========================================================= */
+========================= */
 
-const calendar =
-    document.getElementById("calendar");
+function buildCalendar(){
 
-const year = 2026;
-const month = 8; // September = 8
+    const calendar =
+        document.getElementById(
+            "calendar"
+        );
 
-const firstDay =
-    new Date(
-        year,
-        month,
-        1
-    ).getDay();
+    calendar.innerHTML="";
 
-const totalDays =
-    new Date(
-        year,
-        month + 1,
-        0
-    ).getDate();
+    const days=[
+        "Min",
+        "Sen",
+        "Sel",
+        "Rab",
+        "Kam",
+        "Jum",
+        "Sab"
+    ];
 
-const dayNames = [
-    "Min",
-    "Sen",
-    "Sel",
-    "Rab",
-    "Kam",
-    "Jum",
-    "Sab"
-];
-
-dayNames.forEach(
-    day => {
+    days.forEach(day=>{
 
         const el =
             document.createElement("div");
 
-        el.className =
+        el.className=
+            "calendar-day-name";
+
+        el.textContent=day;
+
+        calendar.appendChild(el);
+
+    });
+
+
+    const year=2026;
+    const month=8;
+
+    const firstDay =
+        new Date(
+            year,
+            month,
+            1
+        ).getDay();
+
+    const totalDays =
+        new Date(
+            year,
+            month+1,
+            0
+        ).getDate();
+
+
+    for(
+        let i=0;
+        i<firstDay;
+        i++
+    ){
+
+        const empty =
+            document.createElement("div");
+
+        calendar.appendChild(empty);
+
+    }
+
+
+    for(
+        let day=1;
+        day<=totalDays;
+        day++
+    ){
+
+        const el =
+            document.createElement("div");
+
+        el.className=
             "calendar-day";
 
-        el.textContent =
-            day;
+        el.textContent=day;
+
+        if(day===18){
+
+            el.classList.add(
+                "active"
+            );
+
+        }
 
         calendar.appendChild(el);
 
     }
-);
-
-for (
-    let i = 0;
-    i < firstDay;
-    i++
-) {
-
-    const empty =
-        document.createElement("div");
-
-    calendar.appendChild(empty);
 
 }
 
-for (
-    let day = 1;
-    day <= totalDays;
-    day++
-) {
-
-    const date =
-        document.createElement("div");
-
-    date.className =
-        "calendar-date";
-
-    date.textContent =
-        day;
-
-    if (day === 18) {
-
-        date.classList.add("highlight");
-
-    }
-
-    calendar.appendChild(date);
-
-}
+buildCalendar();
 
 
-/* =========================================================
+/* =========================
    GALLERY LIGHTBOX
-========================================================= */
+========================= */
 
-const galleryItems =
-    document.querySelectorAll(
-        ".gallery-item"
-    );
+document
+    .querySelectorAll(".gallery-item img")
+    .forEach(img=>{
 
-const lightbox =
-    document.getElementById(
-        "lightbox"
-    );
-
-const lightboxImage =
-    document.getElementById(
-        "lightboxImage"
-    );
-
-const lightboxClose =
-    document.getElementById(
-        "lightboxClose"
-    );
-
-galleryItems.forEach(
-    item => {
-
-        item.addEventListener(
+        img.addEventListener(
             "click",
-            function () {
+            ()=>{
 
-                const img =
-                    item.querySelector("img");
+                document.getElementById(
+                    "lightboxImage"
+                ).src=img.src;
 
-                lightboxImage.src =
-                    img.src;
-
-                lightboxImage.alt =
-                    img.alt;
-
-                lightbox.classList.add(
+                document.getElementById(
+                    "lightbox"
+                ).classList.add(
                     "show"
                 );
 
             }
         );
 
-    }
-);
-
-lightboxClose.addEventListener(
-    "click",
-    function () {
-
-        lightbox.classList.remove(
-            "show"
-        );
-
-    }
-);
-
-lightbox.addEventListener(
-    "click",
-    function (event) {
-
-        if (
-            event.target === lightbox
-        ) {
-
-            lightbox.classList.remove(
-                "show"
-            );
-
-        }
-
-    }
-);
+    });
 
 
-/* =========================================================
-   MAP
-========================================================= */
+function closeLightbox(){
 
-const FTI_LAT =
-    -0.91482;
+    document.getElementById(
+        "lightbox"
+    ).classList.remove(
+        "show"
+    );
 
-const FTI_LNG =
-    100.46039;
+}
+
+
+/* =========================
+   LEAFLET MAP
+========================= */
 
 const map =
-    L.map("map");
+    L.map("map")
+    .setView(
+        [
+            -0.91482,
+            100.46039
+        ],
+        16
+    );
+
 
 L.tileLayer(
     "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
     {
-        maxZoom: 19,
-
+        maxZoom:19,
         attribution:
-            "&copy; OpenStreetMap contributors"
+            '&copy; OpenStreetMap contributors'
     }
 ).addTo(map);
 
-map.setView(
-    [
-        FTI_LAT,
-        FTI_LNG
-    ],
-    16
-);
 
-L.marker(
-    [
-        FTI_LAT,
-        FTI_LNG
-    ]
-)
+L.marker([
+    -0.91482,
+    100.46039
+])
 .addTo(map)
 .bindPopup(
-    "<strong>Fakultas Teknologi Informasi</strong><br>Universitas Andalas"
+    "<b>Fakultas Teknologi Informasi</b><br>Universitas Andalas"
 )
 .openPopup();
 
 
-/* =========================================================
+/* =========================
+   MUSIC
+========================= */
+
+let isPlaying=false;
+
+function toggleMusic(){
+
+    const audio =
+        document.getElementById(
+            "audio"
+        );
+
+    const button =
+        document.getElementById(
+            "musicToggle"
+        );
+
+    if(isPlaying){
+
+        audio.pause();
+
+        button.textContent="♪";
+
+        isPlaying=false;
+
+    }else{
+
+        audio.play().catch(()=>{});
+
+        button.textContent="Ⅱ";
+
+        isPlaying=true;
+
+    }
+
+}
+
+
+/* =========================
    WISHES
-========================================================= */
+========================= */
 
 const wishForm =
     document.getElementById(
@@ -2848,63 +2931,45 @@ const wishesList =
         "wishesList"
     );
 
+
 wishForm.addEventListener(
     "submit",
-    function (event) {
+    function(e){
 
-        event.preventDefault();
+        e.preventDefault();
 
         const name =
-            document
-                .getElementById("wishName")
-                .value
-                .trim();
+            document.getElementById(
+                "wishName"
+            ).value.trim();
 
         const message =
-            document
-                .getElementById("wishMessage")
-                .value
-                .trim();
+            document.getElementById(
+                "wishMessage"
+            ).value.trim();
 
-        if (!name || !message) {
+        if(!name || !message){
             return;
         }
 
         const card =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
-        card.className =
-            "wish-card";
+        card.className="wish-card";
 
-        const wishName =
-            document.createElement("div");
+        card.innerHTML=`
+            <strong>
+                ${escapeHtml(name)}
+            </strong>
 
-        wishName.className =
-            "wish-name";
+            <p>
+                ${escapeHtml(message)}
+            </p>
+        `;
 
-        wishName.textContent =
-            name;
-
-        const wishMessage =
-            document.createElement("div");
-
-        wishMessage.className =
-            "wish-message";
-
-        wishMessage.textContent =
-            message;
-
-        card.appendChild(
-            wishName
-        );
-
-        card.appendChild(
-            wishMessage
-        );
-
-        wishesList.prepend(
-            card
-        );
+        wishesList.prepend(card);
 
         wishForm.reset();
 
@@ -2912,84 +2977,50 @@ wishForm.addEventListener(
 );
 
 
-/* =========================================================
-   DOWNLOAD ICS
-========================================================= */
+function escapeHtml(text){
 
-document
-    .getElementById("downloadICS")
-    .addEventListener(
-        "click",
-        function () {
+    const div =
+        document.createElement("div");
 
-            const ics = [
-                "BEGIN:VCALENDAR",
-                "VERSION:2.0",
-                "PRODID:-//Graduation Invitation//EN",
-                "BEGIN:VEVENT",
-                "UID:cindy-graduation-2026@example.com",
-                "DTSTAMP:20260101T000000Z",
-                "DTSTART:20260918T060000Z",
-                "DTEND:20260918T080000Z",
-                "SUMMARY:Wisuda Cindy Arwinda Putri",
-                "LOCATION:Fakultas Teknologi Informasi Universitas Andalas",
-                "DESCRIPTION:Undangan Wisuda Cindy Arwinda Putri, S.Kom",
-                "END:VEVENT",
-                "END:VCALENDAR"
-            ].join("\r\n");
+    div.textContent=text;
 
-            const blob =
-                new Blob(
-                    [ics],
-                    {
-                        type:
-                            "text/calendar;charset=utf-8"
-                    }
-                );
+    return div.innerHTML;
 
-            const url =
-                URL.createObjectURL(blob);
-
-            const link =
-                document.createElement("a");
-
-            link.href = url;
-
-            link.download =
-                "wisuda-cindy-arwinda-putri.ics";
-
-            document.body.appendChild(link);
-
-            link.click();
-
-            link.remove();
-
-            URL.revokeObjectURL(url);
-
-        }
-);
+}
 
 
-/* =========================================================
+/* =========================
    MAP RESIZE
-========================================================= */
-
-window.addEventListener(
-    "resize",
-    function () {
-
-        setTimeout(
-            () => map.invalidateSize(),
-            250
-        );
-
-    }
-);
+========================= */
 
 setTimeout(
-    () => map.invalidateSize(),
-    500
+    ()=>{
+        map.invalidateSize();
+    },
+    700
 );
+
+
+/* =========================
+   CLOSE LIGHTBOX CLICK OUTSIDE
+========================= */
+
+document
+    .getElementById("lightbox")
+    .addEventListener(
+        "click",
+        function(e){
+
+            if(
+                e.target===this
+            ){
+
+                closeLightbox();
+
+            }
+
+        }
+    );
 
 </script>
 
